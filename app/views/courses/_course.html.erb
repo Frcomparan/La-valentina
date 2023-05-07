@@ -3,25 +3,20 @@
     <strong>Name:</strong>
     <%= course.name %>
   </p>
-
   <p>
     <strong>Description:</strong>
     <%= course.description %>
   </p>
-
   <p>
     <strong>Price:</strong>
-    <%= course.price %>
+    <%= course.price.round(2) %>
   </p>
-
   <p>
     <strong>Cover:</strong>
     <%= link_to course.cover.filename, course.cover if course.cover.attached? %>
   </p>
-
   <p>
     <strong>User:</strong>
     <%= course.user_id %>
   </p>
-
 </div>
