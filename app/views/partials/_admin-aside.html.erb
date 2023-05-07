@@ -1,0 +1,26 @@
+<aside class="admin-aside">
+  <div class="aside-content">
+    <header>
+      <a class="option" href="#">
+        <img src=<%= asset_path 'png/4.png' %> alt="admin-icon" />
+        <p>Administrador</p>
+      </a>
+    </header>
+    <section class="users-options">
+      <a class="option" href="#">
+        <img src=<%= asset_path 'png/10.png' %> alt="users-icon" />
+        <p>Usuarios</p>
+      </a>
+    </section>
+    <section class="courses-options">
+      <%= link_to courses_path, class: 'option' do %>
+        <img src=<%= asset_path 'png/12.png' %> alt="class-edit-icon" />
+        <p>Mis cursos</p>
+      <% end %>
+      <%= link_to new_course_path, class: 'option' do %>
+        <img src=<%= asset_path 'png/11.png' %> alt="class-edit-icon" />
+        <p>Crear curso</p>
+      <% end %>
+    </section>
+  </div>
+</aside>
