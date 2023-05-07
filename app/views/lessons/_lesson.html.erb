@@ -1,0 +1,22 @@
+<div id="<%= dom_id lesson %>">
+  <p>
+    <strong>Title:</strong>
+    <%= lesson.title %>
+  </p>
+  <p>
+    <strong>Descripcion:</strong>
+    <%= lesson.description %>
+  </p>
+  <p>
+    <strong>Cover:</strong>
+    <%= link_to lesson.cover.filename, lesson.cover if lesson.cover.attached? %>
+  </p>
+  <p>
+    <strong>Video:</strong>
+    <%= link_to lesson.video.filename, lesson.video if lesson.video.attached? %>
+  </p>
+  <p>
+    <strong>Course:</strong>
+    <%= lesson.course_id %>
+  </p>
+</div>

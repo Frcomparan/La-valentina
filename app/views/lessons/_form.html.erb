@@ -1,0 +1,35 @@
+<%= form_with(model: lesson, url: path) do |form| %>
+  <% if lesson.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+      <ul>
+        <% lesson.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, required: true %>
+  </div>
+  <div>
+    <%= form.label :lesson_number %>
+    <%= form.text_field :lesson_number, required: true %>
+  </div>
+  <div>
+    <%= form.label :cover %>
+    <%= form.file_field :cover %>
+  </div>
+  <div>
+    <%= form.label :video %>
+    <%= form.file_field :video %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

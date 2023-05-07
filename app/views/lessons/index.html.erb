@@ -1,0 +1,10 @@
+<h1>Lessons</h1>
+<div id="lessons">
+  <% @lessons.each do |lesson| %>
+    <%= render lesson %>
+    <p>
+      <%= link_to "Show this lesson", course_lesson_path(@course, lesson) %>
+    </p>
+  <% end %>
+</div>
+<%= link_to "New lesson", new_course_lesson_path %>
