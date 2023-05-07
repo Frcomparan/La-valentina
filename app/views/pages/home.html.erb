@@ -1,6 +1,6 @@
 <div class="home">
   <header>
-    <nav>
+    <nav class="home-nav">
       <ul>
         <li class="small">
           <%= link_to 'Cursos', private_path() %>
@@ -8,12 +8,21 @@
         <li class="small">
           <a href="#">Tus cursos</a>
         </li>
-        <li class="big">
-          <a href="#">Registrate</a>
-        </li>
-        <li class="big">
-          <a href="#">Iniciar Sesión</a>
-        </li>
+        <% unless user_signed_in? %>
+          <li class="big">
+            <%= link_to 'Registrate', new_user_registration_path() %>
+          </li>
+          <li class="big">
+            <%= link_to 'Iniciar Sesión', new_user_session_path() %>
+          </li>
+        <% else %>
+          <li class="big">
+            <span><%= current_user.email %></span>
+          </li>
+          <li class="big">
+            <%= link_to 'Cerrar sesión', destroy_user_session_path(), data: { "turbo-method": :delete } %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </header>
