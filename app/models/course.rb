@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Course < ApplicationRecord
   belongs_to :user
   has_many :lessons
@@ -11,9 +13,10 @@ class Course < ApplicationRecord
   validate :validate_cover
 
   private
+
   def validate_cover
-    unless cover and cover.content_type =~ /^image\/(jpeg|pjpeg|gif|png|bmp)$/
-      errors.add(:cover, "La imagen subida no es valida")
-    end
+    return if cover && cover.content_type =~ (%r{^image/(jpeg|pjpeg|gif|png|bmp)$})
+
+    errors.add(:cover, 'La imagen subida no es valida')
   end
 end
