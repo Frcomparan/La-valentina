@@ -1,4 +1,4 @@
-.forms-conteiner {
+.forms-container {
   display: flex;
   height: 100vh;
   overflow: hidden;
@@ -6,7 +6,6 @@
 
   .left-half {
     flex: 1;
-    background-image: url(<%=asset_path'pexels.jpg'%>);
     background-size: cover;
     /*Animacion*/
     animation-name: slide-in-left;
@@ -14,6 +13,23 @@
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
     opacity: 0;
+  }
+
+  .login-left-half {
+    background-image: url(<%=asset_path'bgs/bg-2.jpeg'%>);
+  }
+
+  .reset-password-left-half {
+    background-image: url(<%=asset_path'bgs/bg-2.jpeg'%>);
+  }
+
+  .edit-information-left-half {
+    background-image: url(<%=asset_path'bgs/bg-1.jpg'%>);
+  }
+
+  .registration-left-half {
+    background-size: cover;
+    background-image: url(<%=asset_path'bgs/bg-1.jpg'%>);
   }
 
   @keyframes slide-in-left {
@@ -42,6 +58,11 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    input {
+      width: auto;
+      margin: 0;
+    }
 
     label {
       margin: 0;
@@ -91,8 +112,19 @@
     margin-bottom: 5px;
   }
 
-  input[type='email'],
-  input[type='password'] {
+  ::placeholder {
+    color: #000;
+    opacity: 10;
+    text-indent: 30px;
+  }
+
+  input {
+    background-color: #fff;
+    color: #000;
+    background-position: 10px center;
+    background-size: auto 20px;
+    background-repeat: no-repeat;
+    font-size: 20px;
     width: 100%;
     padding: 10px;
     border-radius: 50px;
@@ -101,30 +133,16 @@
     text-indent: 30px;
   }
 
-  ::placeholder {
-    color: #000;
-    opacity: 10;
-    text-indent: 30px;
+  input[name='user[name]'] {
+    background-image: url(<%=asset_path'user.png'%>);
   }
 
   input[type='email'] {
-    background-color: #fff;
-    color: #000;
     background-image: url(<%=asset_path'email.png'%>);
-    background-position: 10px center;
-    background-size: auto 20px;
-    background-repeat: no-repeat;
-    font-size: 20px;
   }
 
   input[type='password'] {
-    background-color: #fff;
-    color: #000;
     background-image: url(<%=asset_path'password.png'%>);
-    background-position: 10px center;
-    background-size: auto 20px;
-    background-repeat: no-repeat;
-    font-size: 20px;
   }
 
   a {
@@ -176,5 +194,39 @@
     display: flex;
     flex-direction: column;
     width: 60%;
+  }
+
+  .delete-account-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 10px;
+
+    p {
+      margin: 0;
+    }
+
+    & > form {
+      margin: 0;
+      width: 100%;
+    }
+
+    button {
+      background-color: #da4c4c;
+      color: #f9f7f0;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #771212;
+      }
+    }
   }
 }
