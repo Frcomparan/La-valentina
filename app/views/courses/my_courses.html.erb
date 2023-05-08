@@ -2,7 +2,15 @@
   <%= render "partials/admin-aside" %>
   <main class="admin-content">
     <%= render "partials/admin-nav" %>
-    <h2>Tus cursos</h2>
+    <header>
+      <h2>Tus cursos</h2>
+      <form action="">
+        <label for="">
+          <img src=<%= asset_path 'png/12.png' %> alt="">
+        </label>
+        <input type="text" placeholder="Buscar curso">
+      </form>
+    </header>
     <div class="courses-list">
       <% @courses.each do |course| %>
         <%= link_to course do %>

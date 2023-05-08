@@ -1,12 +1,11 @@
-<h1>Courses</h1>
-<div id="courses">
-  <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", course %>
-    </p>
-    <br>
-    <hr>
-  <% end %>
-</div>
-<%= link_to "New course", new_course_path %>
+<main class="courses-index">
+  <%= render "partials/admin-nav" %>
+  <h2>Cursos disponibles</h2>
+  <div id="courses" class="courses-list">
+    <% @courses.each do |course| %>
+      <%= link_to course do %>
+        <%= render course %>
+      <% end %>
+    <% end %>
+  </div>
+</main>

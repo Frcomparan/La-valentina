@@ -15,14 +15,48 @@ body {
   padding: 0 5%;
 }
 
+.admin-content header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  form {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+      width: 30px;
+    }
+
+    input {
+      border-radius: 8px;
+      padding: 5px 10px;
+      border: none;
+      width: -webkit-fill-available;
+      background-color: white;
+      outline: none;
+    }
+  }
+}
+
 .general-nav {
   width: 100%;
   display: flex;
   justify-content: end;
   height: 50px;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
 
+  & > div {
+    display: flex;
+    gap: 20px;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
   a {
     color: white;
   }

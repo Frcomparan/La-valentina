@@ -1,7 +1,11 @@
+.courses-index {
+  padding: 0 5%;
+}
+
 .courses-list {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 250px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
   gap: 20px;
 
   a {

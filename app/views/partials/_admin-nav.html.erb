@@ -1,17 +1,22 @@
-    <nav class="general-nav">
-  <% unless user_signed_in? %>
-    <span class="big">
-      <%= link_to 'Registrate', new_user_registration_path() %>
-    </span>
-    <span class="big">
-      <%= link_to 'Iniciar Sesión', new_user_session_path() %>
-    </span>
-  <% else %>
-    <spna class="big">
-      <span><%= current_user.email %></span>
-    </spna>
-    <span class="big">
-      <%= link_to 'Cerrar sesión', destroy_user_session_path(), data: { "turbo-method": :delete } %>
-    </span>
-  <% end %>
+<nav class="general-nav">
+  <span>
+    <%= link_to 'Inicio', root_path %>
+  </span>
+  <div class="rigth-side">
+    <% unless user_signed_in? %>
+      <span class="big">
+        <%= link_to 'Registrate', new_user_registration_path() %>
+      </span>
+      <span class="big">
+        <%= link_to 'Iniciar Sesión', new_user_session_path() %>
+      </span>
+    <% else %>
+      <spna class="big">
+        <span><%= current_user.email %></span>
+      </spna>
+      <span class="big">
+        <%= link_to 'Cerrar sesión', destroy_user_session_path(), data: { "turbo-method": :delete } %>
+      </span>
+    <% end %>
+  </div>
 </nav>
