@@ -12,6 +12,7 @@ body {
 
 .admin-container .admin-content {
   width: 100%;
+  padding: 0 5%;
 }
 
 .general-nav {
@@ -21,7 +22,6 @@ body {
   height: 50px;
   align-items: center;
   gap: 20px;
-  padding-right: 5%;
 
   a {
     color: white;

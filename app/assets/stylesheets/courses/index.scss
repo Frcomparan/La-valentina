@@ -1,0 +1,69 @@
+.courses-list {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 250px));
+  gap: 20px;
+
+  a {
+    color: white;
+  }
+
+  .create-link {
+    display: grid;
+    place-items: center;
+
+    img {
+      width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 1px 1px 7px 0px #c1c1c1;
+      transform: scale(1.02);
+    }
+  }
+
+  .course {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    &:hover {
+      box-shadow: 1px 1px 7px 0px #c1c1c1;
+      transform: scale(1.02);
+    }
+
+    .data {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 10px;
+
+      p {
+        overflow: hidden;
+      }
+
+      p:nth-child(1) {
+        max-height: 40px;
+      }
+
+      p:nth-child(2) {
+        max-height: 90px;
+      }
+
+      p:nth-child(3) {
+        max-height: 40px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      max-height: 200px;
+      object-fit: cover;
+    }
+  }
+}

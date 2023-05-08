@@ -1,7 +1,7 @@
 <%= render @course %>
 <div>
   <%= link_to "Edit this course", edit_course_path(@course) %> |
-  <%= link_to "Back to courses", courses_path %>
+  <%= link_to "Back to courses", admin_courses_path %>
   <%= button_to "Destroy this course", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
   <%= link_to "Añadir nueva clase", new_course_lesson_path(@course)  %>
 </div>

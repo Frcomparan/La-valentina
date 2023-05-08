@@ -3,7 +3,11 @@
   width: 30%;
   max-width: 300px;
   background-color: rgb(46, 46, 46);
-  min-height: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 .aside-content {
