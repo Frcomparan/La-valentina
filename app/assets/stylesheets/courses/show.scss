@@ -1,0 +1,88 @@
+.show-course {
+  padding: 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .left-side,
+  .rigth-side {
+    min-height: 80vh;
+    max-height: 80vh;
+    width: 49%;
+    display: inline-block;
+    display: flex;
+  }
+
+  .left-side {
+    gap: 20px;
+    flex-direction: column;
+
+    & > div {
+      border: 1px solid white;
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    h2 {
+      padding: 20px 10px;
+      background-color: gray;
+      position: sticky;
+      top: 0;
+    }
+
+    .lesson {
+      padding: 4px;
+      border-bottom: 1px solid white;
+      display: flex;
+      gap: 10px;
+      max-height: 60px;
+      overflow: hidden;
+      align-items: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  h1 {
+    font-weight: bolder;
+    font-size: 2.5rem;
+  }
+
+  .rigth-side {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .courses-options {
+    margin: 15px 0;
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    .button_to button {
+      background-color: rgb(122, 35, 35);
+    }
+
+    a,
+    button {
+      background-color: blue;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      color: white;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+      }
+    }
+  }
+}

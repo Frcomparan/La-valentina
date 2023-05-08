@@ -1,7 +1,37 @@
-<%= render @course %>
-<div>
-  <%= link_to "Edit this course", edit_course_path(@course) %> |
-  <%= link_to "Back to courses", admin_courses_path %>
-  <%= button_to "Destroy this course", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
-  <%= link_to "Añadir nueva clase", new_course_lesson_path(@course)  %>
-</div>
+<main class="show-course">
+  <%= render 'partials/admin-nav' %>
+  <aside class="left-side">
+    <h1><%= @course.name %></h1>
+    <p><%= @course.description %></p>
+    <div>
+      <h2>Lista de reproducción</h2>
+      <section class="lessons">
+        <% @course.lessons.each do |lesson| %>
+          <%= link_to course_lesson_path(@course, lesson), class: 'lesson' do %>
+            <% if lesson.cover.attached? %>
+              <%= image_tag lesson.cover.representation(resize_to_limit: [200, 200]) %>
+            <% end %>
+            <h3><%= lesson.title %></h3>
+          <% end %>
+        <% end %>
+      </section>
+    </div>
+  </aside>
+  <aside class="rigth-side">
+    <% if @course.cover.attached? %>
+      <%= image_tag @course.cover.representation(resize_to_limit: [600, 600]) %>
+    <% end %>
+  </aside>
+  <div class="courses-options">
+    <% if true %>
+      <%= link_to "Volver", admin_courses_path %>
+      <%= link_to "Añadir nueva clase", new_course_lesson_path(@course)  %>
+      <%= link_to "Editar curso", edit_course_path(@course) %>
+      <%= button_to "Eliminar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
+    <% else %>
+      <button>
+        Comprar curso
+      </button>
+    <% end %>
+  </div>
+</main>
