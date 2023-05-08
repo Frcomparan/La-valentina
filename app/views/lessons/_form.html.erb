@@ -27,7 +27,7 @@
     <div class="fields">
       <%= form.label :cover do %>
         <span>Miniatura</span>
-        <%= form.file_field :cover %>
+        <%= form.file_field :cover, onchange: 'displayPicture(event)' %>
         <div class="upload">
           <% if lesson.cover.attached? %>
             <%= image_tag lesson.cover.representation(resize_to_limit: [400, 400]), id: 'cover'%>
@@ -49,13 +49,7 @@
   </div>
 <% end %>
 <script>
-  const uploadPictureButton = document.querySelector('#lesson_cover')
-
-  uploadPictureButton.addEventListener('change', (event) => {
-    displayPicture(event)
-  })
-
-  const displayPicture = (event) => {
+  function displayPicture(event) {
     const input = event.target
     if (input.files && input.files[0]) {
       const reader = new FileReader()

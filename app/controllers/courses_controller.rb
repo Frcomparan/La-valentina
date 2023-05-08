@@ -9,6 +9,10 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def my_courses
+    index()
+  end
+
   # GET /courses/1 or /courses/1.json
   def show; end
 

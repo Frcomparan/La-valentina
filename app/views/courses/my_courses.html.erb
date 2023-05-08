@@ -1,0 +1,17 @@
+<div class="admin-container">
+  <%= render "partials/admin-aside" %>
+  <main class="admin-content">
+    <%= render "partials/admin-nav" %>
+    <div class="courses-list">
+      <% @courses.each do |course| %>
+        <%= render course %>
+        <p>
+          <%= link_to "Show this course", course %>
+        </p>
+        <br>
+        <hr>
+      <% end %>
+    </div>
+    <%= link_to "New course", new_course_path %>
+  </main>
+</div>

@@ -9,23 +9,50 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="data">
+    <div class="fields">
+      <%= form.label :name, 'Titulo' %>
+      <%= form.text_field :name, required: true %>
+    </div>
+    <div class="fields">
+      <%= form.label :description, 'Descripción' %>
+      <%= form.text_area :description, required: true %>
+    </div>
+    <div class="fields">
+      <%= form.label :price, 'Precio' %>
+      <%= form.text_field :price, required: true %>
+    </div>
   </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="media-content">
+    <div class="fields">
+      <%= form.label :cover do %>
+        <span>Miniatura</span>
+        <%= form.file_field :cover, onchange: 'displayPicture(event)' %>
+        <div class="upload">
+          <% if course.cover.attached? %>
+            <%= image_tag course.cover.representation(resize_to_limit: [400, 400]), id: 'cover'%>
+          <% else %>
+            <img src=<%= asset_path 'png/7.png' %> alt="uploader-cover" id="cover">
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-  <div>
-    <%= form.label :cover, style: "display: block" %>
-    <%= form.file_field :cover %>
-  </div>
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit 'Guardar' %>
   </div>
 <% end %>
+<script>
+  function displayPicture(event) {
+    const input = event.target
+    if (input.files && input.files[0]) {
+      const reader = new FileReader()
+
+      reader.onload = function (e) {
+        document.getElementById('cover').setAttribute('src', e.target.result)
+      }
+
+      reader.readAsDataURL(input.files[0])
+    }
+  }
+</script>

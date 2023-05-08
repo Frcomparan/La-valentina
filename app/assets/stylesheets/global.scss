@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'TT Commons Pro', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.admin-container .admin-content {
+  width: 100%;
+}
+
+.general-nav {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  height: 50px;
+  align-items: center;
+  gap: 20px;
+  padding-right: 5%;
+
+  a {
+    color: white;
+  }
+}
