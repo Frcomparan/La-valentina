@@ -1,5 +1,10 @@
-<%= render "form", course: @course %>
-<br>
-<div>
-  <%= link_to "Back to courses", courses_path %>
+<div class="admin-container courses-create-container">
+  <%= render "partials/admin-aside" %>
+  <div class="courses-create">
+    <h1>Crear nuevo curso</h1>
+    <%= render "form", course: @course %>
+    <div>
+      <%= link_to "Back to courses", courses_path %>
+    </div>
+  </div>
 </div>
