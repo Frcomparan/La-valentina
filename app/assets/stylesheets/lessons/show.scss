@@ -1,23 +1,37 @@
-.show-course {
+.show-lesson {
   padding: 0 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
-  .left-side,
-  .rigth-side {
+  & > header {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  & > .left-side,
+  & > .rigth-side {
     min-height: 80vh;
-    max-height: 80vh;
-    width: 49%;
     display: inline-block;
     display: flex;
   }
 
-  .left-side {
+  & > .left-side {
+    width: 70%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  & > .rigth-side {
+    width: 30%;
     gap: 20px;
     flex-direction: column;
 
-    & > div {
+    & > div:nth-child(1) {
       border: 1px solid white;
       height: 100%;
       overflow-y: auto;
@@ -27,13 +41,17 @@
         font-weight: bolder;
         background-color: gray;
       }
+
+      h2 {
+        padding: 20px 10px;
+        background-color: rgb(44, 44, 44);
+        position: sticky;
+        top: 0;
+      }
     }
 
-    h2 {
-      padding: 20px 10px;
-      background-color: rgb(44, 44, 44);
-      position: sticky;
-      top: 0;
+    .extras img {
+      width: 50px;
     }
 
     .lesson {
@@ -53,19 +71,7 @@
     }
   }
 
-  h1 {
-    font-weight: bolder;
-    font-size: 2.5rem;
-  }
-
-  .rigth-side {
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .courses-options {
+  .lesson-options {
     margin: 15px 0;
     gap: 12px;
     width: 100%;

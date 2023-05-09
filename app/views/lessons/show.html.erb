@@ -1,6 +1,42 @@
-<%= render @lesson %>
-<div>
-  <%= link_to "Edit this lesson", edit_course_lesson_path(@course, @lesson) %> |
-  <%= link_to "Back to lessons", course_lessons_path(@course) %>
-  <%= button_to "Destroy this lesson", course_lesson_path(@course, @lesson), data: { turbo_confirm: "Esta por elimnar '#{@lesson.title}'. ¿Estas seguro?" }, method: :delete %>
-</div>
+<main class="show-lesson">
+  <%= render 'partials/admin-nav' %>
+  <header>
+    <h1><%= @lesson.title %></h1>
+    <p>Clase <%= @lesson.lesson_number %></p>
+  </header>
+  <aside class="left-side">
+    <% if @lesson.video.attached? %>
+      <%= video_tag(url_for(@lesson.video), controls: true) %>
+    <% end %>
+    <h2>Descripción:</h2>
+    <p><%= @lesson.description%></p>
+  </aside>
+  <aside class="rigth-side">
+    <div>
+      <h2>Lista de reproducción</h2>
+      <section class="lessons">
+        <% @course.lessons.each do |lesson| %>
+          <%= link_to course_lesson_path(@course, lesson), class: 'lesson' do %>
+            <% if lesson.cover.attached? %>
+              <%= image_tag lesson.cover.representation(resize_to_limit: [200, 200]) %>
+            <% end %>
+            <h3><%= lesson.title %></h3>
+          <% end %>
+        <% end %>
+      </section>
+    </div>
+    <div>
+      <h2>Extras</h2>
+      <section class="extras">
+        <img src=<%= asset_path 'png/4.png' %> alt="">
+        <img src=<%= asset_path 'png/4.png' %> alt="">
+      </section>
+    </div>
+    <div class="lesson-options">
+      <% if true %>
+        <%= link_to "Editar clase", edit_course_lesson_path(@course, @lesson) %>
+        <%= button_to "Eliminar clase", course_lesson_path(@course, @lesson), data: { turbo_confirm: "Esta por elimnar '#{@lesson.title}'. ¿Estas seguro?" }, method: :delete %>
+      <% end %>
+    </div>
+  </aside>
+</main>
