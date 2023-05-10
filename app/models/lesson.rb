@@ -2,6 +2,7 @@
 
 class Lesson < ApplicationRecord
   belongs_to :course
+  has_many :comments
   has_one_attached :cover
   has_one_attached :video
   has_many_attached :extras

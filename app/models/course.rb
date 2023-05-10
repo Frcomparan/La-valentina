@@ -3,6 +3,7 @@
 class Course < ApplicationRecord
   belongs_to :user
   has_many :lessons
+  has_many :scores
   has_one_attached :cover
 
   # Validations
