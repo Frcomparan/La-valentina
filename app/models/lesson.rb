@@ -4,6 +4,7 @@ class Lesson < ApplicationRecord
   belongs_to :course
   has_one_attached :cover
   has_one_attached :video
+  has_many_attached :extras
 
   # Validation
   validates :title, :description, presence: true
@@ -16,14 +17,14 @@ class Lesson < ApplicationRecord
   private
 
   def validate_cover
-    return if cover && cover.content_type =~ (%r{^image/(jpeg|pjpeg|gif|png|bmp)$})
+    return if cover && cover.content_type =~ (%r{^image/(jpeg|gif|png|bmp|jpg)$})
 
     errors.add(:cover, 'La imagen subida no es valida')
   end
 
   def validate_video
     print "\n\n\n\n\n #{video.content_type} \n\n\n\n\n"
-    return if video && video.content_type =~ (%r{^video/(mp4|mov)$})
+    return if video && video.content_type =~ (%r{^video/(mp4|mov|mkv)$})
 
     errors.add(:video, 'El video subido no es valido')
   end

@@ -43,6 +43,12 @@
       <% end %>
       <%= form.file_field :video %>
     </div>
+    <div class="fields">
+      <%= form.label :extras do %>
+        <span>Extras</span>
+      <% end %>
+      <%= form.file_field :extras %>
+    </div>
   </div>
   <div class="actions">
     <%= form.submit 'Guardar' %>

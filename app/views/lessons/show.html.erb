@@ -28,12 +28,19 @@
     <div>
       <h2>Extras</h2>
       <section class="extras">
-        <img src=<%= asset_path 'png/4.png' %> alt="">
-        <img src=<%= asset_path 'png/4.png' %> alt="">
+        <% if @lesson.extras.attached? %>
+          <% @lesson.extras.each do |extra| %>
+            <%= link_to url_for(extra), target:'_blank' do %>
+              <img src="<%= asset_path 'png/8.png' %>" alt="icon-for-file">
+            <% end %>
+          <% end %>
+        <% else %>
+          <h3>No hay archivos complementarios</h3>
+        <% end %>
       </section>
     </div>
     <div class="lesson-options">
-      <% if true %>
+      <% if false %>
         <%= link_to "Editar clase", edit_course_lesson_path(@course, @lesson) %>
         <%= button_to "Eliminar clase", course_lesson_path(@course, @lesson), data: { turbo_confirm: "Esta por elimnar '#{@lesson.title}'. ¿Estas seguro?" }, method: :delete %>
       <% end %>
