@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LessonsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_lesson, only: %i[show edit update destroy]
   before_action :set_course
   # GET /lessons or /lessons.json
@@ -9,7 +10,9 @@ class LessonsController < ApplicationController
   end
 
   # GET /lessons/1 or /lessons/1.json
-  def show; end
+  def show
+    @comment = @lesson.comments.new
+  end
 
   # GET /lessons/new
   def new

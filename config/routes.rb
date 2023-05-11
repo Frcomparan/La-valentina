@@ -3,8 +3,9 @@
 Rails.application.routes.draw do
   resources :courses do
     resources :lessons
-    resources :scores, only: [:new, :create]
+    resources :scores, only: %i[new create]
   end
+  resources :comments, only: %i[create destroy]
   devise_for :users
 
   get '/private', to: 'pages#private', as: 'private'

@@ -13,35 +13,20 @@
       <p><%= @lesson.description%></p>
     </div>
     <div class="comments-section">
-      <form action="" class="comments-form">
-        <label for="">
-          <img src="<%= asset_path 'png/4.png' %>" alt="user-icon">
-          <textarea name="" id="" placeholder="Deja un comentario"></textarea>
-        </label>
-        <div>
-          <input type="submit">
-        </div>
-      </form>
+      <%= render 'comments/form', comment: @comment, lesson: @lesson %>
       <div class="comments-container">
-        <div class="comment">
-          <h3>Usuario X</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
-          <hr>
-        </div>
-        <div class="comment">
-          <h3>Usuario X</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
-          <hr>
-        </div>
-        <div class="comment">
-          <h3>Usuario X</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
-          <hr>
-        </div>
-        <div class="comment">
-          <h3>Usuario X</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
-        </div>
+        <% @lesson.comments.each do |comment|%>
+          <% if comment.persisted? %>
+            <div class="comment">
+              <h3><%= comment.user.name %></h3>
+              <p><%= comment.content %></p>
+              <% if comment.user == current_user %>
+                <%= button_to "X", comment_path(comment), data: { turbo_confirm: "¿Seguro que quiere elimianr el comentario?" }, method: :delete %>
+              <% end %>
+            </div>
+            <hr>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </aside>

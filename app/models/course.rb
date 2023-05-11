@@ -15,11 +15,11 @@ class Course < ApplicationRecord
 
   def rating
     scores = self.scores
-    return (scores.reduce(0) { |sum, score| sum += score.value } / scores.length).round(2)
+    (scores.reduce(0) { |sum, score| sum += score.value } / scores.length).round(2)
   end
 
   def rated?(user_id)
-    return self.scores.where(user_id: user_id).length > 0
+    scores.where(user_id:).length.positive?
   end
 
   private

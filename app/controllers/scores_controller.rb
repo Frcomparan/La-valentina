@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScoresController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course
@@ -25,7 +27,8 @@ class ScoresController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
+
+  # Only allow a list of trusted parameters through.
   def score_params
     params.require(:score).permit(:value, :description, :course_id, :user_id)
   end

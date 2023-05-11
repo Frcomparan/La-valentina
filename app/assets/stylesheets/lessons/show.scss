@@ -38,7 +38,42 @@
       margin-bottom: 15px;
     }
 
+    .comments-container {
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .comment {
+      position: relative;
+
+      form {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: fit-content;
+
+        button {
+          font-size: 10px;
+          background-color: gray;
+          border: none;
+          padding: 4px;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: rgb(75, 75, 75);
+          }
+        }
+      }
+    }
+
     .comments-form {
+      margin-bottom: 15px;
+
       img {
         width: 40px;
       }
@@ -76,6 +111,10 @@
         padding: 5px 15px;
         border: none;
         border-radius: 10px;
+
+        &:hover {
+          background-color: rgb(75, 75, 75);
+        }
       }
     }
   }
