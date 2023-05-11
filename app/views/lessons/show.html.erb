@@ -8,8 +8,42 @@
     <% if @lesson.video.attached? %>
       <%= video_tag(url_for(@lesson.video), controls: true) %>
     <% end %>
-    <h2>Descripción:</h2>
-    <p><%= @lesson.description%></p>
+    <div class="description-lesson-container">
+      <h2>Descripción:</h2>
+      <p><%= @lesson.description%></p>
+    </div>
+    <div class="comments-section">
+      <form action="" class="comments-form">
+        <label for="">
+          <img src="<%= asset_path 'png/4.png' %>" alt="user-icon">
+          <textarea name="" id="" placeholder="Deja un comentario"></textarea>
+        </label>
+        <div>
+          <input type="submit">
+        </div>
+      </form>
+      <div class="comments-container">
+        <div class="comment">
+          <h3>Usuario X</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
+          <hr>
+        </div>
+        <div class="comment">
+          <h3>Usuario X</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
+          <hr>
+        </div>
+        <div class="comment">
+          <h3>Usuario X</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
+          <hr>
+        </div>
+        <div class="comment">
+          <h3>Usuario X</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi saepe aperiam quis soluta libero! Voluptatibus, voluptate. Nostrum aut natus optio sed ab sequi deleniti, cumque a. Tenetur sapiente suscipit delectus.</p>
+        </div>
+      </div>
+    </div>
   </aside>
   <aside class="rigth-side">
     <div>

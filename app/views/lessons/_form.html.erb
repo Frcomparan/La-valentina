@@ -27,7 +27,7 @@
     <div class="fields">
       <%= form.label :cover do %>
         <span>Miniatura</span>
-        <%= form.file_field :cover, onchange: 'displayPicture(event)' %>
+        <%= form.file_field :cover, onchange: 'displayPicture(event)', required: true %>
         <div class="upload">
           <% if lesson.cover.attached? %>
             <%= image_tag lesson.cover.representation(resize_to_limit: [400, 400]), id: 'cover'%>
@@ -41,7 +41,7 @@
       <%= form.label :video do %>
         <span>Video</span>
       <% end %>
-      <%= form.file_field :video %>
+      <%= form.file_field :video, required: true %>
     </div>
     <div class="fields">
       <%= form.label :extras do %>

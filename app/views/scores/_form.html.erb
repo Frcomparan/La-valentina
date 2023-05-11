@@ -3,7 +3,7 @@
     <%= form.label :value, style: "display: block", class: "form-label" do %>
       Calificación: <span id="form-range-value" >0</span>
     <% end %>
-    <%= form.range_field :value, class: "form-range",value: 0, min: 0, max: 5, step: 0.01, input: 'updateRangeInput(event)' %>
+    <%= form.range_field :value, class: "form-range",value: 0, min: 0, max: 5, step: 0.01, required: true %>
     <div style="color: red">
       <% if score.errors.include?(:value) %>
         <% score.errors.full_messages_for(:value).each do |error_message| %>

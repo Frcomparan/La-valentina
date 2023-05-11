@@ -10,6 +10,11 @@
     flex-direction: column;
     width: 100%;
     margin-bottom: 10px;
+
+    p,
+    h1 {
+      margin: 0;
+    }
   }
 
   & > .left-side,
@@ -24,6 +29,55 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
+    padding-right: 10px;
+
+    .description-lesson-container {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgb(97, 97, 97);
+      margin-bottom: 15px;
+    }
+
+    .comments-form {
+      img {
+        width: 40px;
+      }
+
+      label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      textarea {
+        width: inherit;
+        height: 30px;
+        color: white;
+        background: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid snow;
+      }
+
+      textarea:focus {
+        border-bottom: 3px solid white;
+      }
+
+      & > div {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+      }
+
+      input[type='submit'] {
+        background-color: grey;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 10px;
+      }
+    }
   }
 
   & > .rigth-side {
@@ -34,6 +88,7 @@
     & > div:nth-child(1) {
       border: 1px solid white;
       height: 100%;
+      max-height: 350px;
       overflow-y: auto;
 
       a {

@@ -34,8 +34,10 @@
       <%= link_to "Editar curso", edit_course_path(@course) %>
       <%= button_to "Eliminar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
     <% else %>
-      <% unless @course.rated?(current_user.id) %>
-        <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
+      <% if user_signed_in? %>
+        <% unless @course.rated?(current_user.id) %>
+          <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
+        <% end %>
       <% end %>
       <button>
         Comprar curso
