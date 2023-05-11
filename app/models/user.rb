@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :courses
   has_many :comments
+  has_many :scores
 end

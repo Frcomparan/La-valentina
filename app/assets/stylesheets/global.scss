@@ -4,10 +4,18 @@
   box-sizing: border-box;
 }
 
-body {
+.my-body {
   font-family: 'TT Commons Pro', sans-serif;
-  background-color: black;
+  background-color: black !important;
   color: white;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .admin-container .admin-content {

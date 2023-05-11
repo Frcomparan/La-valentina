@@ -34,6 +34,7 @@
       background-color: rgb(44, 44, 44);
       position: sticky;
       top: 0;
+      margin: 0;
     }
 
     .lesson {
@@ -59,9 +60,22 @@
   }
 
   .rigth-side {
+    position: relative;
+
     img {
       width: 100%;
       object-fit: cover;
+    }
+
+    .course-score {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgb(196, 196, 22);
+      padding: 5px 10px;
+      color: white;
+      border-radius: 10px;
+      font-weight: bolder;
     }
   }
 
@@ -91,4 +105,8 @@
       }
     }
   }
+}
+
+.modal-dialog .modal-content {
+  color: black;
 }

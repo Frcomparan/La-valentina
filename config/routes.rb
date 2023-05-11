@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   resources :courses do
     resources :lessons
+    resources :scores, only: [:new, :create]
   end
   devise_for :users
 

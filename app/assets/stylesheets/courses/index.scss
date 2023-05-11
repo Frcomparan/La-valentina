@@ -23,6 +23,7 @@
     &:hover {
       box-shadow: 1px 1px 7px 0px #c1c1c1;
       transform: scale(1.02);
+      color: white;
     }
   }
 
@@ -48,10 +49,11 @@
 
       p {
         overflow: hidden;
+        margin: 0;
       }
 
       p:nth-child(1) {
-        max-height: 40px;
+        max-height: 45px;
       }
 
       p:nth-child(2) {

@@ -13,6 +13,10 @@ class Course < ApplicationRecord
   # Custom validation
   validate :validate_cover
 
+  def self.rating()
+    return self.scores.reduce(0) { |sum, score| sum += score.value }
+  end
+
   private
 
   def validate_cover

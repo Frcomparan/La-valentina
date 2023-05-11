@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
+  <body class="my-body">
     <% if notice %>
       <div class="alert alert-primary notice alert-dismissible fade show" role="alert">
         <%= notice %>
@@ -24,5 +22,6 @@
       </div>
     <% end %>
     <%= yield %>
+    <%= turbo_frame_tag "remote_modal", target: "_top" %>
   </body>
 </html>

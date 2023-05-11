@@ -1,0 +1,27 @@
+<%= form_with(model: score, url: course_scores_path(course) ) do |form| %>
+  <div class="mb-3">
+    <%= form.label :value, 'Calificación', style: "display: block", class: "form-label" %>
+    <%= form.text_field :value, class: "form-control" %>
+    <div style="color: red">
+      <% if score.errors.include?(:value) %>
+        <% score.errors.full_messages_for(:value).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="mb-3">
+    <%= form.label :description, 'Comentarios', style: "display: block", class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+    <div style="color: red">
+      <% if score.errors.include?(:description) %>
+        <% score.errors.full_messages_for(:description).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="mb-3">
+    <%= form.submit "Guardar", class: "btn btn-success btn-block" %>
+  </div>
+<% end %>
