@@ -1,7 +1,9 @@
 <%= form_with(model: score, url: course_scores_path(course) ) do |form| %>
   <div class="mb-3">
-    <%= form.label :value, 'Calificación', style: "display: block", class: "form-label" %>
-    <%= form.text_field :value, class: "form-control" %>
+    <%= form.label :value, style: "display: block", class: "form-label" do %>
+      Calificación: <span id="form-range-value" >0</span>
+    <% end %>
+    <%= form.range_field :value, class: "form-range",value: 0, min: 0, max: 5, step: 0.01, input: 'updateRangeInput(event)' %>
     <div style="color: red">
       <% if score.errors.include?(:value) %>
         <% score.errors.full_messages_for(:value).each do |error_message| %>
@@ -25,3 +27,11 @@
     <%= form.submit "Guardar", class: "btn btn-success btn-block" %>
   </div>
 <% end %>
+<script>
+  const input = document.getElementById('score_value')
+  const value = document.getElementById('form-range-value')
+
+  input.addEventListener("input", (event) => {
+    value.textContent = event.target.value
+  })
+</script>

@@ -3,6 +3,6 @@ class Score < ApplicationRecord
   belongs_to :course
 
   validates :value, presence: true
-  validates :description, length: { minimum: 1, message: 'No puedes dejar un comentario vacío'  }
+  validates :value, numericality: { greater_than: 0, less_than: 5, message: 'La calificación debe estar entre 0 y 5' }
 
 end

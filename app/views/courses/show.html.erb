@@ -20,7 +20,11 @@
   <aside class="rigth-side">
     <% if @course.cover.attached? %>
       <%= image_tag @course.cover.representation(resize_to_limit: [600, 600]) %>
-      <span class="course-score"><%= @course.scores.reduce(0) { |sum, score| sum += score.value } %></span>
+      <% if @course.scores.length > 0 %>
+        <span class="course-score"><%= @course.rating %></span>
+      <% else %>
+        <span class="course-score">0</span>
+      <% end %>
     <% end %>
   </aside>
   <div class="courses-options">
@@ -30,7 +34,9 @@
       <%= link_to "Editar curso", edit_course_path(@course) %>
       <%= button_to "Eliminar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
     <% else %>
-      <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
+      <% unless @course.rated?(current_user.id) %>
+        <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
+      <% end %>
       <button>
         Comprar curso
       </button>
