@@ -1,0 +1,24 @@
+<nav class='principal-nav'>
+  <section class="nav-searcher">
+    <a href="/" class="logo">La valentina</a>
+  </section>
+  <section class="nav-filter">
+    <div class="nav-filter-right" data-controller="hello">
+      <%= link_to 'Cursos', courses_path() %>
+      <a href="#">Tus cursos</a>
+      <% unless user_signed_in? %>
+        <%= link_to 'Registrate', new_user_registration_path() %>
+        <%= link_to 'Iniciar Sesión', new_user_session_path() %>
+        <strong><span>Invitado</span></strong>
+      <% else %>
+        <div class="current-user-menu">
+          <strong><span><%= current_user.email %></span></strong>
+          <div class="menu-icon" id="menu-icon" data-action="hello#menuInteraction">
+            <i class="fa-solid fa-caret-down"></i>
+          </div>
+          <%= render "partials/options_menu" %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</nav>

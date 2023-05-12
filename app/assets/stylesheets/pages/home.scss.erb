@@ -1,5 +1,9 @@
 /* Fondo y Letra */
 .home {
+  min-height: 100vh;
+  display: flex;
+  padding: 0 5%;
+  justify-content: end;
   background-image: url(<%=asset_path'15.jpg'%>);
   background-size: cover;
 }
@@ -58,12 +62,13 @@
   /* Section */
   .intro {
     box-sizing: border-box;
-    width: 100%;
+    width: 50%;
+    padding-left: 8px;
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
   }
 
   .intro h1 {
@@ -72,10 +77,6 @@
     font-weight: bold;
     color: #f9f7f0;
     margin-bottom: 30px;
-    /* Posición */
-    position: absolute;
-    top: 208.5px;
-    left: 685.8px;
   }
 
   .intro p {
@@ -84,12 +85,8 @@
     text-align: left;
     color: #f9f7f0;
     margin-bottom: 50px;
-    /* Posición */
-    position: absolute;
-    top: 287.1px;
-    left: 685.8px;
-    width: 370.5px;
-    height: 82.7px;
+    max-width: 420px;
+    font-weight: bolder;
   }
 
   /* Botón */
@@ -109,9 +106,5 @@
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
     border: none;
-    /* Posición */
-    position: absolute;
-    left: 685.8px;
-    top: 410px;
   }
 }

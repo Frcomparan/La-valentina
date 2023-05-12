@@ -1,0 +1,36 @@
+<div class="options-menu inactive menu" id="menu">
+  <% if !user_signed_in? %>
+    <div>
+      <%= link_to 'Iniciar sesión', new_user_session_path %>
+      <%= link_to 'Registrarse', new_user_registration_path %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "Mis datos", edit_user_registration_path %>
+      <%= link_to "Cerrar sesión", destroy_user_session_path, data: { turbo_method: :delete } %>
+    </div>
+  <% end %>
+</div>
+<script>
+  function menuInteraction() {
+    const menuIcon = document.getElementById('menu-icon')
+    const menu = document.getElementById('menu')
+    console.log('AAAAAAAAAAAAAAAAAA')
+
+    menuIcon.addEventListener('click', ()=> {
+      menu.classList.contains('inactive') ? menu.classList.remove('inactive') : menu.classList.add('inactive')
+    })
+  }
+
+  menuInteraction();
+
+  function hideMenus(event) {
+    const validation = (event.target.matches('.menu') || event.target.matches('.menu-icon') || event.target.matches('.fa-caret-down'));
+
+    if (!validation) {
+      menu.classList.add('inactive')
+    }
+  }
+
+  document.onclick = hideMenus;
+</script>
