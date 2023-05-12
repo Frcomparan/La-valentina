@@ -1,7 +1,6 @@
 <div class="admin-container lessons-create-container">
   <%= render "partials/admin-aside" %>
   <main class="admin-content">
-    <%= render "partials/admin-nav" %>
     <div class="classes-create">
       <h1>Editar clase clase</h1>
       <%= render "form", lesson: @lesson, path: course_lesson_path(@course, @lesson) %>

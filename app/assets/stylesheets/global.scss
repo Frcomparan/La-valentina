@@ -20,7 +20,7 @@
 
 .admin-container .admin-content {
   width: 100%;
-  padding: 0 5%;
+  padding: 80px 5%;
 }
 
 .admin-content header {
@@ -78,4 +78,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.my-body main {
+  padding-top: 80px;
 }

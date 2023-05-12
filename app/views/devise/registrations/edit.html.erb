@@ -1,6 +1,6 @@
-<div class="forms-container">
+<div class="forms-container" >
   <div class="left-half edit-information-left-half"></div>
-  <div class="right-half">
+  <div class="right-half edit-form">
     <h2>Editar datos de usuario</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
