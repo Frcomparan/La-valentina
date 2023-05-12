@@ -20,11 +20,7 @@
   <aside class="rigth-side">
     <% if @course.cover.attached? %>
       <%= image_tag @course.cover.representation(resize_to_limit: [600, 600]) %>
-      <% if @course.scores.length > 0 %>
-        <span class="course-score"><%= @course.rating %></span>
-      <% else %>
-        <span class="course-score">0</span>
-      <% end %>
+      <%= render 'partials/course-score', course: @course %>
     <% end %>
   </aside>
   <div class="courses-options">

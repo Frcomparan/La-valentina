@@ -15,7 +15,7 @@ class Course < ApplicationRecord
 
   def rating
     scores = self.scores
-    (scores.reduce(0) { |sum, score| sum += score.value } / scores.length).round(2)
+    (scores.reduce(0) { |sum, score| sum += score.value } / scores.length).round(1)
   end
 
   def rated?(user_id)

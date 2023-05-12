@@ -1,0 +1,8 @@
+<div class="course-score">
+  <img src="<%= asset_path 'png/6.png' %>" alt="">
+  <% if course.scores.length > 0 %>
+    <span ><%= course.rating %></span>
+  <% else %>
+    <span >0</span>
+  <% end %>
+</div>
