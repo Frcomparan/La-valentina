@@ -1,5 +1,22 @@
 .courses-index {
   padding: 0 5%;
+
+  header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .disclaimer {
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+    }
+  }
 }
 
 .courses-list {

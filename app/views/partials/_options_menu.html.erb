@@ -1,4 +1,11 @@
 <div class="options-menu inactive menu" id="menu">
+  <div>
+    <%= link_to 'Mis cursos', my_courses_path %>
+  </div>
+  <div>
+    <%= link_to 'Administrar cursos', admin_courses_path %>
+    <a href="#" >Usuarios</a>
+  </div>
   <% if !user_signed_in? %>
     <div>
       <%= link_to 'Iniciar sesión', new_user_session_path %>

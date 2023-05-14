@@ -22,6 +22,11 @@ class Course < ApplicationRecord
     scores.where(user_id:).length.positive?
   end
 
+
+  def self.search(search)
+    courses = self.where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")
+  end
+
   private
 
   def validate_cover

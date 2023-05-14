@@ -3,14 +3,19 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
+  before_action :set_courses, only: %i[index admin_courses my_courses]
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+
+  end
+
+  def admin_courses
+
   end
 
   def my_courses
-    index
+
   end
 
   # GET /courses/1 or /courses/1.json
@@ -72,5 +77,13 @@ class CoursesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def course_params
     params.require(:course).permit(:name, :description, :price, :cover)
+  end
+
+  def set_courses
+    if !params[:search].nil?
+      @courses = Course.search(params[:search])
+    else
+      @courses = Course.all
+    end
   end
 end

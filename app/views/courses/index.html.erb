@@ -1,10 +1,19 @@
 <main class="courses-index">
-  <h2>Cursos disponibles</h2>
-  <div id="courses" class="courses-list">
-    <% @courses.each do |course| %>
-      <%= link_to course do %>
-        <%= render course %>
+  <header>
+    <h2>Cursos disponibles</h2>
+    <%= render 'partials/searcher', path: courses_path %>
+  </header>
+  <% if @courses.length > 0 %>
+    <div id="courses" class="courses-list">
+      <% @courses.each do |course| %>
+        <%= link_to course do %>
+          <%= render course %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="disclaimer">
+      <h2>Sin cursos disponibles</h2>
+    </div>
+  <% end %>
 </main>

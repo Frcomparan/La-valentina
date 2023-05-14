@@ -101,12 +101,11 @@
         box-shadow: 0 0 3px black;
         display: flex;
         font-size: 1rem;
-        padding-bottom: 10px;
         flex-direction: column;
         position: absolute;
         top: 45px;
         right: 0px;
-        width: 200px;
+        width: 250px;
         z-index: 3;
 
         & > div {

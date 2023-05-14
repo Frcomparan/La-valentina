@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get '/private', to: 'pages#private', as: 'private'
 
-  get 'admin/courses', to: 'courses#my_courses', as: 'admin_courses'
+  get 'admin/courses', to: 'courses#admin_courses', as: 'admin_courses'
+  get 'my-courses', to: 'courses#my_courses', as: 'my_courses'
 
   # Defines the root path route ("/")
   root 'pages#home'

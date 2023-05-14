@@ -27,26 +27,6 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-
-  form {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    img {
-      width: 30px;
-    }
-
-    input {
-      border-radius: 8px;
-      padding: 5px 10px;
-      border: none;
-      width: -webkit-fill-available;
-      background-color: white;
-      outline: none;
-    }
-  }
 }
 
 .inactive {
@@ -83,4 +63,30 @@
 
 .my-body main {
   padding-top: 80px;
+}
+
+.searcher {
+  width: 30%;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 30px;
+  }
+
+  input {
+    border-radius: 8px 0px 0px 8px;
+    padding: 5px 10px;
+    border: none;
+    width: -webkit-fill-available;
+    background-color: white;
+    outline: none;
+  }
+
+  button {
+    border: none;
+    background-color: darkgray;
+    border-radius: 0 8px 8px 0;
+    padding: 5px 10px;
+  }
 }

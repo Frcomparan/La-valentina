@@ -5,7 +5,7 @@
   <section class="nav-filter">
     <div class="nav-filter-right" data-controller="hello">
       <%= link_to 'Cursos', courses_path() %>
-      <a href="#">Tus cursos</a>
+      <%= link_to 'Tus cursos', my_courses_path() %>
       <% unless user_signed_in? %>
         <%= link_to 'Registrate', new_user_registration_path() %>
         <%= link_to 'Iniciar Sesión', new_user_session_path() %>

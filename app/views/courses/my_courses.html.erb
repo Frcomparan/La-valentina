@@ -1,24 +1,19 @@
-<div class="admin-container">
-  <%= render "partials/admin-aside" %>
-  <main class="admin-content">
-    <header>
-      <h2>Tus cursos</h2>
-      <form action="">
-        <label for="">
-          <img src=<%= asset_path 'png/12.png' %> alt="">
-        </label>
-        <input type="text" placeholder="Buscar curso">
-      </form>
-    </header>
-    <div class="courses-list">
+<main class="courses-index">
+  <header>
+    <h2>Mis cursos</h2>
+    <%= render 'partials/searcher', path: my_courses_path %>
+  </header>
+  <% if @courses.length > 0 %>
+    <div id="courses" class="courses-list">
       <% @courses.each do |course| %>
         <%= link_to course do %>
           <%= render course %>
         <% end %>
       <% end %>
-      <%= link_to new_course_path, class: 'create-link' do %>
-        <img src=<%= asset_path 'png/7.png' %> alt="">
-      <% end %>
     </div>
-  </main>
-</div>
+  <% else %>
+    <div class="disclaimer">
+      <h2>Sin cursos disponibles</h2>
+    </div>
+  <% end %>
+</main>
