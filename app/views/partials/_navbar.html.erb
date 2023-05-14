@@ -21,8 +21,8 @@
       <% end %>
       <a href="#" class="cart-link">
         <i class="fa-solid fa-cart-shopping"></i>
-        <div class="new-item">
-          <span> 0 </span>
+        <div class="new-item <%= 'inactive' if @current_cart.courses.size == 0 %>">
+          <span> <%= @current_cart.total_courses %> </span>
         </div>
       </a>
     </div>

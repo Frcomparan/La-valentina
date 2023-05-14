@@ -19,8 +19,6 @@
         $<%= course.price.round(2) %>
       </strong>
     </p>
-    <button>
-      COMPRAR
-    </button>
+    <%= render 'partials/add_cart_form', course: course %>
   </div>
 </div>

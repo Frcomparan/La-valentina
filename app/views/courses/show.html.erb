@@ -32,14 +32,10 @@
         <% unless @course.rated?(current_user.id) %>
           <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
         <% end %>
-        <button>
-          Comprar curso
-        </button>
+        <%= render 'partials/add_cart_form', course: @course %>
       <% end %>
     <% else %>
-      <button>
-        Comprar curso
-      </button>
+      <%= render 'partials/add_cart_form', course: @course %>
     <% end %>
   </div>
 </main>

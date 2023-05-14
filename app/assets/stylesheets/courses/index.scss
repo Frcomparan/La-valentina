@@ -95,7 +95,13 @@
         max-height: 40px;
       }
 
-      button {
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      input {
         background: rgb(0, 102, 255);
         border-radius: 10px;
         border: none;

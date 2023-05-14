@@ -4,6 +4,8 @@ class Course < ApplicationRecord
   belongs_to :user
   has_many :lessons
   has_many :scores
+  has_many :cart_items
+  has_many :carts, through: :cart_items
   has_one_attached :cover
 
   # Validations
