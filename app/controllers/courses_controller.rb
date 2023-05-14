@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_courses, only: %i[index admin_courses my_courses]
+  load_and_authorize_resource
+
 
   # GET /courses or /courses.json
   def index

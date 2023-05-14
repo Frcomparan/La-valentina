@@ -22,6 +22,8 @@ gem 'importmap-rails'
 
 gem 'bootstrap'
 
+gem 'cancancan'
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
 

@@ -4,6 +4,8 @@ class LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lesson, only: %i[show edit update destroy]
   before_action :set_course
+  load_and_authorize_resource
+
   # GET /lessons or /lessons.json
   def index
     @lessons = Lesson.all
