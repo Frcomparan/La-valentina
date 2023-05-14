@@ -58,8 +58,8 @@ es:
       already_confirmed: 'ya fue confirmado, intente iniciar sesión'
       confirmation_period_expired: 'debe confirmarse dentro del %{period}, solicite uno nuevo'
       expired: 'ha caducado, solicite uno nuevo'
-      not_found: 'extraviado'
+      not_found: 'no encontrado'
       not_locked: 'no estaba bloqueado'
       not_saved:
-        one: '1 error prohibió que se guardara este %{recurso}:'
-        other: '%{count} errores prohibieron que este %{resource} se guardara:'
+        one: '1 error prohibió que se guardara este usuario:'
+        other: '%{count} errores prohibieron que este usuario se guardara:'

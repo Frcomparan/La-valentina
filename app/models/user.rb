@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :scores
 
+  validates :name, presence: true
+
   enum role: { customer: 0, admin: 1 }
 
 end

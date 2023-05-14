@@ -1,0 +1,18 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Debe de ingresar un correo electronico'
+              taken: 'El correo electronico ingresado ya esta en uso'
+              invalid: 'Correo electronico invalido'
+            password:
+              blank: 'No puede dejar la contraseña en blanco'
+              confirmation: 'Las contraseñas no coinciden'
+            password_confirmation:
+              confirmation: 'Las contraseñas no coinciden'
+              blank: 'Debe confirmar su contraseña'
+            name:
+              blank: 'No puede ingresar un nombre en blanco'

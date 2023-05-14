@@ -18,22 +18,25 @@
   </aside>
   <aside class="rigth-side">
     <% if @course.cover.attached? %>
-      <%= image_tag @course.cover.representation(resize_to_limit: [600, 600]) %>
+      <%= image_tag @course.cover %>
       <%= render 'partials/course-score', course: @course %>
     <% end %>
   </aside>
   <div class="courses-options">
-    <% if false %>
-      <%= link_to "Volver", admin_courses_path %>
-      <%= link_to "Añadir nueva clase", new_course_lesson_path(@course)  %>
-      <%= link_to "Editar curso", edit_course_path(@course) %>
-      <%= button_to "Eliminar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
-    <% else %>
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to "Añadir nueva clase", new_course_lesson_path(@course)  %>
+        <%= link_to "Editar curso", edit_course_path(@course) %>
+        <%= button_to "Ocultar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
+      <% else %>
         <% unless @course.rated?(current_user.id) %>
           <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
         <% end %>
+        <button>
+          Comprar curso
+        </button>
       <% end %>
+    <% else %>
       <button>
         Comprar curso
       </button>

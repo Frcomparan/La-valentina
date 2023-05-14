@@ -8,7 +8,9 @@ class Ability
 
     return unless user.present?
 
-    return unless user.admin?
 
+    return unless user.admin?
+    can :read, Lesson
+    can [:create, :update, :destroy, :admin_courses], [Course, Lesson]
   end
 end
