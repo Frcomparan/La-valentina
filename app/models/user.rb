@@ -10,8 +10,23 @@ class User < ApplicationRecord
   has_many :comments
   has_many :scores
 
+  pay_customer stripe_atributes: :stripe_atributes
+
   validates :name, presence: true
 
   enum role: { customer: 0, admin: 1 }
 
+
+  def stripe_atributes(pay_customer)
+    {
+      address: {
+        city: pay_customer.owner.city,
+        country: pay_customer.owner.country
+      },
+      metadata: {
+        pay_customer_id: pay_customer.id,
+        user_id: id
+      }
+    }
+  end
 end

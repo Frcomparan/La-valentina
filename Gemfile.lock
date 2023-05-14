@@ -162,6 +162,8 @@ GEM
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
+    pay (6.4.0)
+      rails (>= 6.0.0)
     pg (1.5.3)
     popper_js (2.11.7)
     public_suffix (5.0.1)
@@ -243,6 +245,7 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stripe (8.5.0)
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -288,6 +291,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
+  pay (~> 6.4)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
@@ -296,6 +300,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  stripe (~> 8.5)
   turbo-rails
   tzinfo-data
   web-console
