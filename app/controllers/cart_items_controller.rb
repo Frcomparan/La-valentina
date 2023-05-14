@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
       @cart_item.save
     end
     respond_to do |format|
-      format.js { render inline: "location.reload();", notice: 'AA' }
+      format.js { render inline: "location.reload();" }
     end
 
     # Save and redirect to cart show path

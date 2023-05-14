@@ -1,4 +1,4 @@
 <%= form_with url: add_cart_item_path, method: :post do |form| %>
   <%= form.hidden_field :course_id, value: course.id %>
-  <%= form.submit "Comprar", class:'btn-add-cart btn-buy-item' %>
+  <%= form.submit "Agregar al carrito", class:'btn-add-cart btn-buy-item' %>
 <% end %>

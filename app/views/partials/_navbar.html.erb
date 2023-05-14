@@ -19,12 +19,12 @@
           <%= render "partials/options_menu" %>
         </div>
       <% end %>
-      <a href="#" class="cart-link">
+      <%= link_to cart_path(@current_cart), class: 'cart-link' do %>
         <i class="fa-solid fa-cart-shopping"></i>
         <div class="new-item <%= 'inactive' if @current_cart.courses.size == 0 %>">
           <span> <%= @current_cart.total_courses %> </span>
         </div>
-      </a>
+      <% end %>
     </div>
   </section>
 </nav>

@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   has_many :courses, through: :cart_items
 
   def sub_total

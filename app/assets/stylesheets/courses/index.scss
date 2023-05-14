@@ -6,16 +6,16 @@
     width: 100%;
     justify-content: space-between;
   }
+}
 
-  .disclaimer {
-    min-height: 60vh;
-    display: grid;
-    place-items: center;
+.disclaimer {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
 
-    h2 {
-      text-align: center;
-      font-size: 3rem;
-    }
+  h2 {
+    text-align: center;
+    font-size: 3rem;
   }
 }
 
@@ -55,7 +55,7 @@
     figure {
       position: relative;
 
-      & > img {
+      & a > img {
         height: 200px;
         max-height: 200px;
         object-fit: cover;
@@ -77,6 +77,10 @@
       gap: 12px;
       padding: 10px;
 
+      a:hover {
+        color: rgb(0, 102, 255);
+      }
+
       p {
         margin: 0;
         overflow: hidden;
@@ -95,19 +99,16 @@
         max-height: 40px;
       }
 
-      form {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      input {
+      .link-to-buy {
         background: rgb(0, 102, 255);
         border-radius: 10px;
         border: none;
         color: white;
         font-weight: bolder;
         width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           background: rgb(1, 47, 146);

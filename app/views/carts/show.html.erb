@@ -1,0 +1,40 @@
+<main class="cart-view">
+  <h2>Tu carrito</h2>
+  <% if @cart.cart_items.size == 0 %>
+    <div class="disclaimer">
+      <h2>No hay cursos en tu carrito</h2>
+    </div>
+  <% else %>
+    <table class="cart-table">
+      <tr>
+        <th>Curso</th>
+        <th>Precio</th>
+      </tr>
+      <% @cart.cart_items.each do |cart_item| %>
+        <tr>
+          <td class="td-course">
+            <figure>
+              <%= image_tag cart_item.course.cover.variant(resize_to_limit: [500, 500]) %>
+            </figure>
+            <div>
+              <p><%= cart_item.course.name %></p>
+              <p><%= cart_item.course.description %></p>
+            </div>
+          </td>
+          <td class="td-price">
+            <p> <%= number_to_currency(cart_item.course.price, locale: :en) %> </p>
+          </td>
+          <td>
+            <%= button_to delete_cart_item_path(cart_item), method: :delete do %>
+              <img src="<%= asset_path 'png/9.png' %>" alt="">
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="footer-cart">
+      <h2>Total: <%= number_to_currency(@cart.sub_total, locale: :en) %></h2>
+      <%= link_to "Vaciar carrito", destroy_cart_path(@current_cart), data: { turbo_method: :delete, confirm: "Esta por eliminar todos los cursos del carrito, ¿Estas seguro?"} %>
+    </div>
+  <% end %>
+</main>
