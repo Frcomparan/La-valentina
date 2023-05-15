@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_courses, only: %i[index admin_courses my_courses]
+  before_action :create_sesion, only: %i[show]
   load_and_authorize_resource
 
 
@@ -87,5 +88,30 @@ class CoursesController < ApplicationController
     else
       @courses = Course.all
     end
+  end
+
+  def create_sesion
+    current_user.set_payment_processor :stripe
+    current_user.payment_processor.customer
+
+    @checkout_session = current_user
+      .payment_processor
+      .checkout(
+        mode: 'payment',
+        line_items: [
+          {
+            price_data: {
+              currency: 'mxn',
+              unit_amount: (@course.price * 100).to_i,
+              product_data: {
+                name: @course.name,
+                description: @course.description
+              },
+            },
+            quantity: 1
+          }
+      ],
+        success_url: checkout_success_url
+      )
   end
 end

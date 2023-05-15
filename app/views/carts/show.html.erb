@@ -34,7 +34,13 @@
     </table>
     <div class="footer-cart">
       <h2>Total: <%= number_to_currency(@cart.sub_total, locale: :en) %></h2>
-      <%= link_to "Vaciar carrito", destroy_cart_path(@current_cart), data: { turbo_method: :delete, confirm: "Esta por eliminar todos los cursos del carrito, ¿Estas seguro?"} %>
+      <div>
+        <%= render partial: 'pay/stripe/checkout_button', locals: {
+        session: @checkout_session,
+            title: 'Comprar'
+          }%>
+        <%= link_to "Vaciar carrito", destroy_cart_path(@current_cart), class: 'btn btn-danger', data: { turbo_method: :delete, confirm: "Esta por eliminar todos los cursos del carrito, ¿Estas seguro?"} %>
+      </div>
     </div>
   <% end %>
 </main>

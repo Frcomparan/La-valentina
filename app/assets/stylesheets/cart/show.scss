@@ -2,10 +2,28 @@
   margin: 0 5%;
 }
 
+.footer-cart {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
 .cart-table {
   font-size: 1.4rem;
   margin-bottom: 20px;
-  width: 60%;
+  width: 80%;
+
+  tr,
+  td {
+    padding-bottom: 8px;
+  }
 
   tr {
     td:last-child {
@@ -56,14 +74,19 @@
 
     p {
       font-size: 1rem;
+      margin: 0;
       text-align: left;
 
       &:first-child {
-        max-height: 30px;
+        font-weight: bolder;
+        overflow: hidden;
+        max-height: 50px;
       }
 
       &:last-child {
-        max-height: 50px;
+        color: rgba(151, 151, 151, 0.842);
+        overflow: hidden;
+        max-height: 70px;
       }
     }
   }

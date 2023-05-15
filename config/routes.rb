@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   delete 'cart_items/:id' => "cart_items#destroy", as: 'delete_cart_item'
 
   #payment
-  get 'checkout', to: 'checkouts#show'
+  get 'checkout/now', to: 'checkouts#buy_now', as: 'buy_now'
+  get 'checkout/cart', to: 'checkouts#buy_cart', as: 'buy_cart'
   get 'checkout/success', to: 'checkouts#success'
   get 'billing', to: 'billing#show'
 

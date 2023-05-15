@@ -1,0 +1,9 @@
+var stripe = Stripe("<%= Rails.application.credentials[:stripe][:public] %>")
+console.log('ABbbbbbbbbbb')
+stripe.redirectToCheckout(
+{
+sessionId: '<%= @checkout_session.id %>'
+}
+).then(function(result)) {
+console.log(result.error.message)
+}
