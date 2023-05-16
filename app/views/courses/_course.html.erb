@@ -23,6 +23,8 @@
         $<%= course.price.round(2) %>
       </strong>
     </p>
-    <%= link_to 'COMPRAR', course, class: 'link-to-buy' %>
+    <% unless action_name == 'my_courses' %>
+      <%= link_to 'COMPRAR', course, class: 'link-to-buy' %>
+    <% end %>
   </div>
 </div>

@@ -6,9 +6,7 @@
   <% if @courses.length > 0 %>
     <div id="courses" class="courses-list">
       <% @courses.each do |course| %>
-        <%= link_to course do %>
-          <%= render course %>
-        <% end %>
+        <%= render course, my_course: true %>
       <% end %>
     </div>
   <% else %>

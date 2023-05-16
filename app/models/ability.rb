@@ -7,6 +7,7 @@ class Ability
     can :read, Course
 
     return unless user.present?
+    can :my_courses, Course
 
 
     return unless user.admin?
