@@ -91,6 +91,8 @@ class CoursesController < ApplicationController
   end
 
   def create_sesion
+    return unless user_signed_in?
+
     current_user.set_payment_processor :stripe
     current_user.payment_processor.customer
 

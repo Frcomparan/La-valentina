@@ -2,6 +2,13 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_session, only: %i[show]
 
+  def default
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end
+
+
   def show
     @cart = @current_cart
   end

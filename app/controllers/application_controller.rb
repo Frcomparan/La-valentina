@@ -23,6 +23,8 @@ class ApplicationController < ActionController::Base
   private
 
   def current_cart
+    @current_cart = nil
+    return unless user_signed_in?
     if session[:cart_id]
       cart = Cart.find_by(:id => session[:cart_id])
       if cart.present?
@@ -33,7 +35,9 @@ class ApplicationController < ActionController::Base
     end
 
     if session[:cart_id] == nil
-      @current_cart = Cart.create
+      @current_cart = current_user.carts.find_by(status: 0)
+      @current_cart = current_user.carts.create if @current_cart.nil?
+
       session[:cart_id] = @current_cart.id
     end
   end

@@ -1,6 +1,7 @@
 class Cart < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :courses, through: :cart_items
+  belongs_to :user
 
   def sub_total
     sum = 0

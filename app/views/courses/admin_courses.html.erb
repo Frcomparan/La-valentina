@@ -7,9 +7,7 @@
     </header>
     <div class="courses-list">
       <% @courses.each do |course| %>
-        <%= link_to course do %>
-          <%= render course %>
-        <% end %>
+        <%= render course %>
       <% end %>
       <%= link_to new_course_path, class: 'create-link' do %>
         <img src=<%= asset_path 'png/7.png' %> alt="">

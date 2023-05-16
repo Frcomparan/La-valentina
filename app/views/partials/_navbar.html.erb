@@ -19,11 +19,17 @@
           <%= render "partials/options_menu" %>
         </div>
       <% end %>
-      <%= link_to cart_path(@current_cart), class: 'cart-link' do %>
-        <i class="fa-solid fa-cart-shopping"></i>
-        <div class="new-item <%= 'inactive' if @current_cart.courses.size == 0 %>">
-          <span> <%= @current_cart.total_courses %> </span>
-        </div>
+      <% if @current_cart %>
+        <%= link_to cart_path(@current_cart), class: 'cart-link' do %>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="new-item <%= 'inactive' if @current_cart.courses.size == 0 %>">
+            <span> <%= @current_cart.total_courses %> </span>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to default_cart_path(), class: 'cart-link', alert: 'Debes iniciar sesión' do %>
+          <i class="fa-solid fa-cart-shopping"></i>
+        <% end %>
       <% end %>
     </div>
   </section>

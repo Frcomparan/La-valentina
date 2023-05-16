@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :courses
   has_many :comments
   has_many :scores
+  has_many :carts
 
   pay_customer stripe_atributes: :stripe_atributes
 
