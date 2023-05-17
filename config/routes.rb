@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   # Cart routes
   get 'carts/:id' => "carts#show", as: "cart"
+  get 'carts/sale/:id' => "carts#sale", as: "cart_sale"
   get 'carts/' => "carts#default", as: "default_cart"
   delete 'carts/:id' => "carts#destroy", as: 'destroy_cart'
 

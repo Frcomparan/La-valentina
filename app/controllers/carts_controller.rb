@@ -10,11 +10,19 @@ class CartsController < ApplicationController
   end
 
   def admin_sales
-    @sales = Cart.all.where(status: 1).order(:id)
+    if params[:filter].nil?
+      @sales = Cart.all.where(status: 1).order(:id)
+    else
+      @sales = Cart.search_filter(params[:filter])
+    end
   end
 
   def show
     @cart = @current_cart
+  end
+
+  def sale
+    @cart = Cart.find(params[:id])
   end
 
   def destroy

@@ -32,6 +32,6 @@ class User < ApplicationRecord
   end
 
   def bought_courses
-    Course.joins(:carts, :cart_items).where(carts: {user: self, status:1})
+    Course.joins(:carts, :cart_items).where(carts: { user: self, status: 1}).group(:id)
   end
 end

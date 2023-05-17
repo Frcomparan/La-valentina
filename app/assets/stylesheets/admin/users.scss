@@ -3,6 +3,21 @@ table {
   margin-bottom: 20px;
   width: 100%;
 
+  .th-date,
+  .th-total {
+    span {
+      margin-right: 10px;
+    }
+
+    a {
+      color: white;
+
+      &:hover {
+        color: gray;
+      }
+    }
+  }
+
   tr,
   td,
   th {

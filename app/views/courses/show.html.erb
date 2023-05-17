@@ -29,7 +29,7 @@
         <%= link_to "Editar curso", edit_course_path(@course) %>
         <%= button_to "Ocultar curso", @course, data: { turbo_confirm: "Esta por elimnar '#{@course.name}'. ¿Estas seguro?" }, method: :delete %>
       <% else %>
-        <% unless @course.rated?(current_user.id) %>
+        <% if !@course.rated?(current_user.id) && current_user.bought_courses.include?(@course) %>
           <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
         <% end %>
         <% unless current_user.bought_courses.include?(@course) %>

@@ -5,8 +5,24 @@
       <tr>
         <th>Id</th>
         <th>Comprador</th>
-        <th>Fecha de compra</th>
-        <th>Total</th>
+        <th class="th-date">
+          <span>Fecha de compra</span>
+          <%= link_to admin_sales_path(filter: 'date_higher') do %>
+            <i class="fa-solid fa-arrow-up"></i>
+          <% end %>
+          <%= link_to admin_sales_path(filter: 'date_lower') do %>
+            <i class="fa-solid fa-arrow-down"></i>
+          <% end %>
+        </th>
+        <th class="th-total">
+          <span>Total</span>
+          <%= link_to admin_sales_path(filter: 'price_higher')  do %>
+            <i class="fa-solid fa-arrow-up"></i>
+          <% end %>
+          <%= link_to admin_sales_path(filter: 'price_lower')  do %>
+            <i class="fa-solid fa-arrow-down"></i>
+          <% end %>
+        </th>
       </tr>
       <% @sales.each do |sale| %>
         <tr>
@@ -21,6 +37,9 @@
           </td>
           <td>
             <%= number_to_currency(sale.sub_total) %>
+          </td>
+          <td>
+            <%= link_to 'Ver', cart_sale_path(sale) %>
           </td>
         </td>
       <% end %>
