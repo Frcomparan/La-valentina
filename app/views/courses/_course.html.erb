@@ -1,14 +1,15 @@
 <div id="<%= dom_id course %>" class="course">
+  <% (action_name == 'my_courses') ?  path = course_lesson_url(course.id, course.lessons[0].id) : path = course %>
   <figure>
     <% if course.cover.attached? %>
-      <%= link_to course do %>
+      <%= link_to path do %>
         <%= image_tag course.cover.representation(resize_to_limit: [400, 400]) %>
       <% end %>
       <%= render 'partials/course-score', course: course %>
     </figure>
   <% end %>
   <div class="data">
-    <%= link_to course do %>
+    <%= link_to path do %>
       <p class="name">
         <strong>
           <%= course.name %>
