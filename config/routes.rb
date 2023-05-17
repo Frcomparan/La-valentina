@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   resources :comments, only: %i[create destroy]
   devise_for :users
 
-  get '/private', to: 'pages#private', as: 'private'
-
+  # Admin views
   get 'admin/courses', to: 'courses#admin_courses', as: 'admin_courses'
+  get 'admin/users', to: 'pages#admin_users', as: 'admin_users'
+
+  # General view
   get 'my-courses', to: 'courses#my_courses', as: 'my_courses'
 
   # Cart routes

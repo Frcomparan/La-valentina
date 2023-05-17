@@ -6,4 +6,8 @@ class PagesController < ApplicationController
   def home; end
 
   def private; end
+
+  def admin_users
+    @users = User.all
+  end
 end

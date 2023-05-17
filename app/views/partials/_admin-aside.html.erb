@@ -7,14 +7,18 @@
       </a>
     </header>
     <section class="users-options">
-      <a class="option" href="#">
+      <%= link_to admin_users_path, class: 'option' do %>
         <img src=<%= asset_path 'png/10.png' %> alt="users-icon" />
         <p>Usuarios</p>
-      </a>
+      <% end %>
     </section>
     <section class="courses-options">
+      <%= link_to new_course_path, class: 'option' do %>
+        <img src=<%= asset_path 'png/11.png' %> alt="class-edit-icon" />
+        <p>Ventas</p>
+      <% end %>
       <%= link_to admin_courses_path, class: 'option' do %>
-        <img src=<%= asset_path 'png/12.png' %> alt="class-edit-icon" />
+        <img src=<%= asset_path 'png/10.png' %> alt="class-edit-icon" />
         <p>Mis cursos</p>
       <% end %>
       <%= link_to new_course_path, class: 'option' do %>

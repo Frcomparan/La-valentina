@@ -1,0 +1,25 @@
+<div class="admin-container">
+  <%= render "partials/admin-aside" %>
+  <main class="admin-content">
+    <table>
+      <tr>
+        <th>Correo</th>
+        <th>Nombre</th>
+        <th>Fecha de creación</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            <%= user.created_at.strftime('%d/%b/%Y') %>
+          </td>
+        </td>
+      <% end %>
+    </table>
+  </main>
+</div>
