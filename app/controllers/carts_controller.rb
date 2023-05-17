@@ -49,7 +49,7 @@ class CartsController < ApplicationController
       .checkout(
         mode: 'payment',
         line_items: line_items,
-        success_url: checkout_success_url
+        success_url: checkout_cart_success_url
       )
   end
 end

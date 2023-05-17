@@ -38,10 +38,23 @@ class CheckoutsController < ApplicationController
       )
   end
 
-  def success
+  def cart_success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @line_items = Stripe::Checkout::Session.list_line_items(params[:session_id])
     @current_cart.update(status: 1)
     @cart = @current_cart
+  end
+
+  def now_success
+    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    @line_items = Stripe::Checkout::Session.list_line_items(params[:session_id])
+
+    cart_item = CartItem.new
+    @cart = current_user.carts.create(status: 1)
+    course = Course.find_by(name: @line_items.data[0].description)
+    cart_item.cart = @cart
+    cart_item.course = course
+
+    cart_item.save
   end
 end

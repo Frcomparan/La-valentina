@@ -107,13 +107,13 @@ class CoursesController < ApplicationController
               unit_amount: (@course.price * 100).to_i,
               product_data: {
                 name: @course.name,
-                description: @course.description
+                description: @course.description,
               },
             },
             quantity: 1
           }
       ],
-        success_url: checkout_success_url
+        success_url: checkout_now_success_url
       )
   end
 end

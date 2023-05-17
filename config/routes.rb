@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   #payment
   get 'checkout/now', to: 'checkouts#buy_now', as: 'buy_now'
   get 'checkout/cart', to: 'checkouts#buy_cart', as: 'buy_cart'
-  get 'checkout/success', to: 'checkouts#success'
+  get 'checkout/cart-success', to: 'checkouts#cart_success'
+  get 'checkout/now-success', to: 'checkouts#now_success'
   get 'billing', to: 'billing#show'
 
   # Defines the root path route ("/")
