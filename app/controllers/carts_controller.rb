@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_session, only: %i[show]
+  load_and_authorize_resource
 
   def default
     respond_to do |format|
@@ -8,6 +9,9 @@ class CartsController < ApplicationController
     end
   end
 
+  def admin_sales
+    @sales = Cart.all.where(status: 1).order(:id)
+  end
 
   def show
     @cart = @current_cart
@@ -20,6 +24,7 @@ class CartsController < ApplicationController
     redirect_to root_path
   end
 
+  private
   def create_session
     current_user.set_payment_processor :stripe
     current_user.payment_processor.customer
@@ -42,7 +47,6 @@ class CartsController < ApplicationController
         }
       )
     end
-    print("\n\n\n\n\n #{line_items} \n\n\n\n")
 
     @checkout_session = current_user
       .payment_processor

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   # Admin views
   get 'admin/courses', to: 'courses#admin_courses', as: 'admin_courses'
-  get 'admin/users', to: 'pages#admin_users', as: 'admin_users'
+  get 'admin/users', to: 'users#admin_users', as: 'admin_users'
+  get 'admin/sales', to: 'carts#admin_sales', as: 'admin_sales'
 
   # General view
   get 'my-courses', to: 'courses#my_courses', as: 'my_courses'

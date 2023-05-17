@@ -1,0 +1,29 @@
+<div class="admin-container">
+  <%= render "partials/admin-aside" %>
+  <main class="admin-content">
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Comprador</th>
+        <th>Fecha de compra</th>
+        <th>Total</th>
+      </tr>
+      <% @sales.each do |sale| %>
+        <tr>
+          <td>
+            <%= sale.id %>
+          </td>
+          <td>
+            <%= sale.user.name %>
+          </td>
+          <td>
+            <%= sale.updated_at.strftime('%d/%b/%Y') %>
+          </td>
+          <td>
+            <%= number_to_currency(sale.sub_total) %>
+          </td>
+        </td>
+      <% end %>
+    </table>
+  </main>
+</div>
