@@ -8,6 +8,9 @@ class Ability
 
     return unless user.present?
     can :my_courses, Course
+    can :read, Lesson do |item|
+      user.bought_courses.include?(item.course)
+    end
 
 
     return unless user.admin?

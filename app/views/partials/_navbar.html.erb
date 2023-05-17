@@ -5,10 +5,16 @@
   <section class="nav-filter">
     <div class="nav-filter-right" data-controller="hello">
       <%= link_to 'Cursos', courses_path() %>
-      <%= link_to 'Tus cursos', my_courses_path() %>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to 'Tus cursos', admin_courses_path() %>
+        <% else %>
+          <%= link_to 'Tus cursos', my_courses_path() %>
+        <% end %>
+      <% end %>
       <% unless user_signed_in? %>
         <%= link_to 'Registrate', new_user_registration_path() %>
-        <%= link_to 'Iniciar Sesión', new_user_session_path() %>
+        <%= link_to 'Iniciar sesión', new_user_session_path() %>
         <strong><span>Invitado</span></strong>
       <% else %>
         <div class="current-user-menu">
