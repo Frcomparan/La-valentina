@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     if session[:cart_id]
       cart = Cart.find_by(:id => session[:cart_id])
-      if cart.present?
+      if cart.present? and cart.status == 0
         @current_cart = cart
       else
         session[:cart_id] = nil

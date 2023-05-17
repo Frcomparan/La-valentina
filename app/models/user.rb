@@ -30,4 +30,8 @@ class User < ApplicationRecord
       }
     }
   end
+
+  def bought_courses
+    Course.joins(:carts, :cart_items).where(carts: {user: self})
+  end
 end

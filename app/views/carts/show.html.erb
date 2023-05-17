@@ -13,9 +13,9 @@
       <% @cart.cart_items.each do |cart_item| %>
         <tr>
           <td class="td-course">
-            <figure>
+            <%= link_to course_path(cart_item.course), class: 'image-link' do%>
               <%= image_tag cart_item.course.cover.variant(resize_to_limit: [500, 500]) %>
-            </figure>
+            <% end %>
             <div>
               <p><%= cart_item.course.name %></p>
               <p><%= cart_item.course.description %></p>

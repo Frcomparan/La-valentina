@@ -3,7 +3,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_courses, only: %i[index admin_courses my_courses]
+  before_action :set_courses, only: %i[index admin_courses]
   before_action :create_sesion, only: %i[show]
   load_and_authorize_resource
 
@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
   end
 
   def my_courses
-
+    @courses = current_user.bought_courses
   end
 
   # GET /courses/1 or /courses/1.json

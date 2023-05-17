@@ -41,7 +41,7 @@ class CheckoutsController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @line_items = Stripe::Checkout::Session.list_line_items(params[:session_id])
-    print("\n\n\n\n\n\n\n\n\n\n #{@session} \n\n\n\n\n\n\n\n\n\n")
-    print("\n\n\n\n\n\n\n\n\n\n #{@line_items} \n\n\n\n\n\n\n\n\n\n")
+    @current_cart.update(status: 1)
+    @cart = @current_cart
   end
 end

@@ -32,12 +32,14 @@
         <% unless @course.rated?(current_user.id) %>
           <%= link_to "Valorar", new_course_score_path(@course), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }%>
         <% end %>
-        <%= render 'partials/add_cart_form', course: @course %>
-        <% if user_signed_in? %>
-          <%= render partial: 'pay/stripe/checkout_button', locals: {
+        <% unless current_user.bought_courses.include?(@course) %>
+          <%= render 'partials/add_cart_form', course: @course %>
+          <% if user_signed_in? %>
+            <%= render partial: 'pay/stripe/checkout_button', locals: {
             session: @checkout_session,
             title: 'Comprar ahora'
           }%>
+          <% end %>
         <% end %>
       <% end %>
     <% else %>

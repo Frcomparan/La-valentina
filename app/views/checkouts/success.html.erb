@@ -1,12 +1,28 @@
-<main>
-  <h1>Success!!</h1>
-  <p>You just bought:</p>
-  <h3><%= @session.customer_details.name %></h3>
-  <h3><%= @session.customer_details.email %></h3>
-  <br>
-  <% @line_items.each do |item|%>
-    <h3><%= item.description %></h3>
-    <p>$<%= item.price.unit_amount / 100%></p>
-  <% end %>
-  <h2>Your total was: $<%= @session.amount_total.to_f / 100 %></h2>
+<main class="cart-view">
+  <h2>¡¡Gracias por tu compra!!</h2>
+  <table class="cart-table">
+    <tr>
+      <th>Curso</th>
+      <th>Precio</th>
+    </tr>
+    <% @cart.cart_items.each do |cart_item| %>
+      <tr>
+        <td class="td-course">
+          <%= link_to course_path(cart_item.course), class: 'image-link' do%>
+            <%= image_tag cart_item.course.cover.variant(resize_to_limit: [500, 500]) %>
+          <% end %>
+          <div>
+            <p><%= cart_item.course.name %></p>
+            <p><%= cart_item.course.description %></p>
+          </div>
+        </td>
+        <td class="td-price">
+          <p> <%= number_to_currency(cart_item.course.price, locale: :en) %> </p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="footer-cart">
+    <h2>Total: <%= number_to_currency(@cart.sub_total, locale: :en) %></h2>
+  </div>
 </main>
