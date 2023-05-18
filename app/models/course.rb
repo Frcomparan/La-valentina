@@ -33,6 +33,6 @@ class Course < ApplicationRecord
   def validate_cover
     return if cover && cover.content_type =~ (%r{^image/(jpeg|pjpeg|gif|png|bmp)$})
 
-    errors.add(:cover, 'La imagen subida no es valida')
+    errors.add(:cover, 'La imagen subida no es valida, solo se permiten [jpeg|pjpeg|gif|png|bmp]')
   end
 end

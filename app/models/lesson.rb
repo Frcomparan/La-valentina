@@ -20,13 +20,12 @@ class Lesson < ApplicationRecord
   def validate_cover
     return if cover && cover.content_type =~ (%r{^image/(jpeg|gif|png|bmp|jpg)$})
 
-    errors.add(:cover, 'La imagen subida no es valida')
+    errors.add(:cover, 'La imagen subida no es valida, solo se permiten [jpeg|pjpeg|gif|png|bmp]')
   end
 
   def validate_video
-    print "\n\n\n\n\n #{video.content_type} \n\n\n\n\n"
     return if video && video.content_type =~ (%r{^video/(mp4|mov|mkv)$})
 
-    errors.add(:video, 'El video subido no es valido')
+    errors.add(:video, 'El video subido no es valido, , solo se permiten [mp4|mov|mkv')
   end
 end

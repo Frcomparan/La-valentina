@@ -53,10 +53,11 @@ class LessonsController < ApplicationController
 
   # DELETE /lessons/1 or /lessons/1.json
   def destroy
+    @course = @lesson.course
     @lesson.destroy
 
     respond_to do |format|
-      format.html { redirect_to course_lessons_url, notice: 'La clase fue eliminada correctamente' }
+      format.html { redirect_to course_url(@course), notice: 'La clase fue eliminada correctamente' }
       format.json { head :no_content }
     end
   end

@@ -90,3 +90,10 @@
     padding: 5px 10px;
   }
 }
+
+.alert {
+  position: fixed !important;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
