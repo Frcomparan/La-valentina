@@ -1,7 +1,9 @@
 <div class="admin-container lessons-create-container">
   <%= render "partials/admin-aside" %>
-  <div class="classes-create">
-    <h1>Crear nueva clase</h1>
-    <%= render "form", lesson: @lesson, path: course_lessons_path(@course, @lesson) %>
-  </div>
+  <main class="admin-content">
+    <div class="classes-create">
+      <h1>Crear nueva clase</h1>
+      <%= render "form", lesson: @lesson, path: course_lessons_path(@course, @lesson) %>
+    </div>
+  </main>
 </div>

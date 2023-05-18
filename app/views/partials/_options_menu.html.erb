@@ -10,8 +10,9 @@
     </div>
     <% if current_user.admin? %>
       <div>
-        <%= link_to 'Administrar cursos', admin_courses_path %>
-        <a href="#" >Usuarios</a>
+        <%= link_to 'Ventas', admin_sales_path %>
+        <%= link_to 'Cursos', admin_courses_path %>
+        <%= link_to 'Usuarios', admin_users_path %>
       </div>
     <% end %>
     <div>
@@ -24,7 +25,6 @@
   function menuInteraction() {
     const menuIcon = document.getElementById('menu-icon')
     const menu = document.getElementById('menu')
-    console.log('AAAAAAAAAAAAAAAAAA')
 
     menuIcon.addEventListener('click', ()=> {
       menu.classList.contains('inactive') ? menu.classList.remove('inactive') : menu.classList.add('inactive')

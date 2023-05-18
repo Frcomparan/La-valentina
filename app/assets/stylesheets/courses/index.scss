@@ -61,6 +61,18 @@
         object-fit: cover;
         width: 100%;
       }
+
+      form {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        bottom: -10px;
+
+        .btn {
+          border-radius: 50%;
+        }
+      }
     }
 
     &:hover {

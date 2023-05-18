@@ -33,7 +33,7 @@
             <%= sale.user.name %>
           </td>
           <td>
-            <%= sale.updated_at.strftime('%d/%b/%Y') %>
+            <%= sale.updated_at.strftime('%d/%b/%Y - %I:%M %p') %>
           </td>
           <td>
             <%= number_to_currency(sale.sub_total) %>
