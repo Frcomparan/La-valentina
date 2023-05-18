@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRoleToUser < ActiveRecord::Migration[7.0]
   def change
     add_column :users, :role, :integer, default: 0
@@ -7,6 +9,6 @@ class AddRoleToUser < ActiveRecord::Migration[7.0]
     add_column :users, :confirmation_sent_at, :datetime
     add_column :users, :unconfirmed_email, :string
 
-    add_index :users, :confirmation_token,   :unique => true
+    add_index :users, :confirmation_token, unique: true
   end
 end

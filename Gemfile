@@ -90,5 +90,5 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "stripe", "~> 8.5"
-gem "pay", "~> 6.4"
+gem 'pay', '~> 6.4'
+gem 'stripe', '~> 8.5'

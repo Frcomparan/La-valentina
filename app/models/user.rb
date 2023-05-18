@@ -17,7 +17,6 @@ class User < ApplicationRecord
 
   enum role: { customer: 0, admin: 1 }
 
-
   def stripe_atributes(pay_customer)
     {
       address: {
@@ -32,6 +31,6 @@ class User < ApplicationRecord
   end
 
   def bought_courses
-    Course.joins(:carts, :cart_items).where(carts: { user: self, status: 1}).group(:id)
+    Course.joins(:carts, :cart_items).where(carts: { user: self, status: 1 }).group(:id)
   end
 end

@@ -29,7 +29,7 @@ class LessonsController < ApplicationController
     @lesson = @course.lessons.new(lesson_params)
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to course_lesson_url(@course, @lesson), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_url(@course, @lesson), notice: 'La clase fue creada exitosamente' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to course_lesson_url(@course, @lesson), notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to course_lesson_url(@course, @lesson), notice: 'La clase de actualizo correctamente' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class LessonsController < ApplicationController
     @lesson.destroy
 
     respond_to do |format|
-      format.html { redirect_to course_lessons_url, notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to course_lessons_url, notice: 'La clase fue eliminada correctamente' }
       format.json { head :no_content }
     end
   end

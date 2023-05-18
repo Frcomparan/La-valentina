@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => "No puedes acceder a esta página"
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_url, alert: 'No puedes acceder a esta página'
   end
 
   def configure_permitted_parameters
@@ -25,20 +25,21 @@ class ApplicationController < ActionController::Base
   def current_cart
     @current_cart = nil
     return unless user_signed_in?
+
     if session[:cart_id]
-      cart = Cart.find_by(:id => session[:cart_id])
-      if cart.present? and cart.status == 0
+      cart = Cart.find_by(id: session[:cart_id])
+      if cart.present? && cart.status.zero?
         @current_cart = cart
       else
         session[:cart_id] = nil
       end
     end
 
-    if session[:cart_id] == nil
-      @current_cart = current_user.carts.find_by(status: 0)
-      @current_cart = current_user.carts.create if @current_cart.nil?
+    return unless session[:cart_id].nil?
 
-      session[:cart_id] = @current_cart.id
-    end
+    @current_cart = current_user.carts.find_by(status: 0)
+    @current_cart = current_user.carts.create if @current_cart.nil?
+
+    session[:cart_id] = @current_cart.id
   end
 end

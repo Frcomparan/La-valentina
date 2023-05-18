@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Cart < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :courses, through: :cart_items
@@ -8,21 +10,21 @@ class Cart < ApplicationRecord
 
   def sub_total
     sum = 0
-    self.cart_items.each do |cart_item|
-      sum+= cart_item.course.price
+    cart_items.each do |cart_item|
+      sum += cart_item.course.price
     end
-    return sum
+    sum
   end
 
   def self.search_filter(filtering_param)
-    results = self.where(status: 1)
+    results = where(status: 1)
     return results.sort { |x, y| x.sub_total <=> y.sub_total } if filtering_param == 'price_lower'
     return results.sort { |x, y| y.sub_total <=> x.sub_total } if filtering_param == 'price_higher'
-    results = results.public_send("filter_by_#{filtering_param}")
-    results
+
+    results.public_send("filter_by_#{filtering_param}")
   end
 
   def total_courses
-    return self.cart_items.length
+    cart_items.length
   end
 end

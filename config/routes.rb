@@ -17,16 +17,16 @@ Rails.application.routes.draw do
   get 'my-courses', to: 'courses#my_courses', as: 'my_courses'
 
   # Cart routes
-  get 'carts/:id' => "carts#show", as: "cart"
-  get 'carts/sale/:id' => "carts#sale", as: "cart_sale"
-  get 'carts/' => "carts#default", as: "default_cart"
-  delete 'carts/:id' => "carts#destroy", as: 'destroy_cart'
+  get 'carts/:id' => 'carts#show', as: 'cart'
+  get 'carts/sale/:id' => 'carts#sale', as: 'cart_sale'
+  get 'carts/' => 'carts#default', as: 'default_cart'
+  delete 'carts/:id' => 'carts#destroy', as: 'destroy_cart'
 
   # CartItems routes
-  post 'cart_items' => "cart_items#create", as: 'add_cart_item'
-  delete 'cart_items/:id' => "cart_items#destroy", as: 'delete_cart_item'
+  post 'cart_items' => 'cart_items#create', as: 'add_cart_item'
+  delete 'cart_items/:id' => 'cart_items#destroy', as: 'delete_cart_item'
 
-  #payment
+  # payment
   get 'checkout/now', to: 'checkouts#buy_now', as: 'buy_now'
   get 'checkout/cart', to: 'checkouts#buy_cart', as: 'buy_cart'
   get 'checkout/cart-success', to: 'checkouts#cart_success'

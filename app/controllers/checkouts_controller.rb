@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CheckoutsController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,35 +9,35 @@ class CheckoutsController < ApplicationController
     @course = Course.first
 
     @checkout_session = current_user
-      .payment_processor
-      .checkout(
-        mode: 'payment',
-        line_items: [
-          {
-            price_data: {
-              currency: 'mxn',
-              unit_amount: (@course.price * 100).to_i,
-              product_data: {
-                name: @course.name,
-                description: @course.description
-              },
-            },
-            quantity: 1
-          },
-          {
-            price_data: {
-              currency: 'mxn',
-              unit_amount: (@course.price * 100).to_i,
-              product_data: {
-                name: @course.name,
-                description: @course.description
-              },
-            },
-            quantity: 2
-          }
-      ],
-        success_url: checkout_success_url
-      )
+                        .payment_processor
+                        .checkout(
+                          mode: 'payment',
+                          line_items: [
+                            {
+                              price_data: {
+                                currency: 'mxn',
+                                unit_amount: (@course.price * 100).to_i,
+                                product_data: {
+                                  name: @course.name,
+                                  description: @course.description
+                                }
+                              },
+                              quantity: 1
+                            },
+                            {
+                              price_data: {
+                                currency: 'mxn',
+                                unit_amount: (@course.price * 100).to_i,
+                                product_data: {
+                                  name: @course.name,
+                                  description: @course.description
+                                }
+                              },
+                              quantity: 2
+                            }
+                          ],
+                          success_url: checkout_success_url
+                        )
   end
 
   def cart_success

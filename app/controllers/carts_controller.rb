@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartsController < ApplicationController
   before_action :authenticate_user!
   before_action :create_session, only: %i[show]
@@ -10,11 +12,11 @@ class CartsController < ApplicationController
   end
 
   def admin_sales
-    if params[:filter].nil?
-      @sales = Cart.all.where(status: 1).order(:id)
-    else
-      @sales = Cart.search_filter(params[:filter])
-    end
+    @sales = if params[:filter].nil?
+               Cart.all.where(status: 1).order(:id)
+             else
+               Cart.search_filter(params[:filter])
+             end
   end
 
   def show
@@ -33,6 +35,7 @@ class CartsController < ApplicationController
   end
 
   private
+
   def create_session
     current_user.set_payment_processor :stripe
     current_user.payment_processor.customer
@@ -49,7 +52,7 @@ class CartsController < ApplicationController
             product_data: {
               name: item.course.name,
               description: item.course.description
-            },
+            }
           },
           quantity: 1
         }
@@ -57,11 +60,11 @@ class CartsController < ApplicationController
     end
 
     @checkout_session = current_user
-      .payment_processor
-      .checkout(
-        mode: 'payment',
-        line_items: line_items,
-        success_url: checkout_cart_success_url
-      )
+                        .payment_processor
+                        .checkout(
+                          mode: 'payment',
+                          line_items:,
+                          success_url: checkout_cart_success_url
+                        )
   end
 end
