@@ -7,17 +7,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :courses
-  has_many :comments
-  has_many :scores
-  has_many :carts
+  has_many :comments, dependent: :destroy
+  has_many :scores, dependent: :destroy
+  has_many :carts, dependent: :destroy
 
   pay_customer stripe_atributes: :stripe_atributes
 
   validates :name, presence: true
-  validates :email, format: { with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}\Z/,
+  validates :email, format: { with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.+[a-zA-Z0-9]+\.[a-zA-Z]+\Z/,
     message: "Formato de correo electronico no valido" }
 
-  validates :name, format: { with: /\A[a-zA-Z\-\. ]+\Z/,
+  validates :name, format: { with: /\A[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\-\. ]+\Z/,
     message: "El nombre no tiene formato valido" }
   enum role: { customer: 0, admin: 1 }
 

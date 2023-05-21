@@ -55,6 +55,9 @@ class LessonsController < ApplicationController
   def destroy
     @course = @lesson.course
     @lesson.destroy
+    if @course.lessons.size == 0
+      @course.update(visibility: 0)
+    end
 
     respond_to do |format|
       format.html { redirect_to course_url(@course), notice: 'La clase fue eliminada correctamente' }
@@ -75,6 +78,6 @@ class LessonsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def lesson_params
-    params.require(:lesson).permit(:title, :description, :lesson_number, :cover, :video, :course_id, :extras)
+    params.require(:lesson).permit(:title, :description, :lesson_number, :cover, :video, :course_id, extras: [])
   end
 end

@@ -28,11 +28,13 @@
         <%= f.submit "Guardar cambios" %>
       </div>
     <% end %>
-    <div class="delete-account-container">
-      <h3>Cancelar cuenta</h3>
-      <p>¿No te gusta nuestro servicio?</p>
-      <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Esta por elimnar su cuenta ¿Esta seguro?", turbo_confirm: "Esta por elimnar su cuenta ¿Esta seguro?" }, method: :delete %>
-    </div>
+    <% unless current_user.admin? %>
+      <div class="delete-account-container">
+        <h3>Cancelar cuenta</h3>
+        <p>¿No te gusta nuestro servicio?</p>
+        <%= button_to "Cancelar cuenta", registration_path(resource_name), data: { confirm: "Esta por elimnar su cuenta ¿Esta seguro?", turbo_confirm: "Esta por elimnar su cuenta ¿Esta seguro?" }, method: :delete %>
+      </div>
+    <% end %>
     <div class="shared-links">
       <%= link_to "Regresar", :back %>
     </div>

@@ -1,7 +1,7 @@
 <%= form_with(model: lesson, url: path) do |form| %>
   <% if lesson.errors.any? %>
     <div style="color: red">
-      <h2>Hubo prblemas con el registo:</h2>
+      <h2>Hubo problemas con el registo:</h2>
       <ul>
         <% lesson.errors.each do |error| %>
           <li><%= error.message %></li>
@@ -12,7 +12,7 @@
   <div class="data">
     <div class="fields">
       <%= form.label :lesson_number, 'Número de clase' %>
-      <%= form.text_field :lesson_number, required: true%>
+      <%= form.number_field :lesson_number, required: true, min: 0, max:100 %>
     </div>
     <div class="fields">
       <%= form.label :title, 'Titulo de la clase' %>
@@ -27,7 +27,9 @@
     <div class="fields">
       <%= form.label :cover do %>
         <span>Miniatura</span>
-        <%= form.file_field :cover, onchange: 'displayPicture(event)', required: true %>
+        <div>
+          <%= form.file_field :cover, onchange: 'displayPicture(event)' %>
+        </div>
         <div class="upload">
           <% if lesson.cover.attached? %>
             <%= image_tag lesson.cover.representation(resize_to_limit: [400, 400]), id: 'cover'%>
@@ -41,13 +43,13 @@
       <%= form.label :video do %>
         <span>Video</span>
       <% end %>
-      <%= form.file_field :video, required: true %>
+      <%= form.file_field :video %>
     </div>
     <div class="fields">
       <%= form.label :extras do %>
         <span>Extras</span>
       <% end %>
-      <%= form.file_field :extras %>
+      <%= form.file_field :extras, multiple: true %>
     </div>
   </div>
   <div class="actions">
