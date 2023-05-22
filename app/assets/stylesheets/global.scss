@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+.error-page {
+  min-height: 95vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 30%;
+    border-radius: 50%;
+  }
+}
+
 .my-body {
   font-family: 'TT Commons Pro', sans-serif;
   background-color: black !important;

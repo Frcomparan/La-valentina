@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get 'checkout/now-success', to: 'checkouts#now_success'
   get 'billing', to: 'billing#show'
 
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+
   # Defines the root path route ("/")
   root 'pages#home'
 end
