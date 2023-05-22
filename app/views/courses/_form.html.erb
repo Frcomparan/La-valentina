@@ -12,11 +12,11 @@
   <div class="data">
     <div class="fields">
       <%= form.label :name, 'Titulo' %>
-      <%= form.text_field :name, required: true, maxlength: 40 %>
+      <%= form.text_field :name, required: true, maxlength: 60 %>
     </div>
     <div class="fields">
       <%= form.label :description, 'Descripción' %>
-      <%= form.text_area :description, required: true, maxlength: 70 %>
+      <%= form.text_area :description, required: true, maxlength: 170 %>
     </div>
     <div class="fields">
       <%= form.label :price, 'Precio' %>
@@ -28,7 +28,7 @@
       <%= form.label :cover do %>
         <span>Miniatura</span>
         <div>
-          <%= form.file_field :cover, onchange: 'displayPicture(event)', required: true %>
+          <%= form.file_field :cover, onchange: 'displayPicture(event)' %>
         </div>
         <div class="upload">
           <% if course.cover.attached? %>
