@@ -74,7 +74,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.lessons.size.positive?
         @course.update(visibility: new_visibility)
-        format.html { redirect_to course_url(@course), notice: 'Vibilidad del curso cambiada correctamente' }
+        format.html { redirect_to course_url(@course), notice: 'Visibilidad del curso cambiada correctamente' }
         format.json { head :no_content }
       else
         format.html do
