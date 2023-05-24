@@ -5,8 +5,8 @@ class Cart < ApplicationRecord
   has_many :courses, through: :cart_items
   belongs_to :user
 
-  scope :filter_by_date_lower, -> { order :created_at }
-  scope :filter_by_date_higher, -> { order created_at: :desc }
+  scope :filter_by_date_lower, -> { order :updated_at }
+  scope :filter_by_date_higher, -> { order updated_at: :desc }
 
   def sub_total
     sum = 0
