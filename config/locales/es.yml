@@ -16,3 +16,6 @@ es:
               blank: 'Debe confirmar su contraseña'
             name:
               blank: 'No puede ingresar un nombre en blanco'
+            current_password:
+              invalid: 'La contraseña ingresada es invalida'
+              blank: 'Debes ingresar tu contraseña para confirmar tus cambios'

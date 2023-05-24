@@ -10,7 +10,8 @@ class Course < ApplicationRecord
 
   # Validations
   validates :name, :description, :price, presence: true
-  validates :price, numericality: { greater_than: 10, message: 'El precio debe ser mayor a 10 MXN' }
+  validates :price, numericality: { greater_than: 10, message: 'El precio debe ser mayor a $10 MXN' }
+  validates :price, numericality: { less_than: 10000, message: 'El precio debe ser menor a $10,000 MXN' }
 
   # Custom validation
   validate :validate_cover

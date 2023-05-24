@@ -14,8 +14,6 @@ class User < ApplicationRecord
   pay_customer stripe_atributes: :stripe_atributes
 
   validates :name, presence: true
-  validates :email, format: { with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.+[a-zA-Z0-9]+\.[a-zA-Z]+\Z/,
-    message: "Formato de correo electronico no valido" }
 
   validates :name, format: { with: /\A[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\-\. ]+\Z/,
     message: "El nombre no tiene formato valido" }
