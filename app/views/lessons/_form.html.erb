@@ -16,11 +16,11 @@
     </div>
     <div class="fields">
       <%= form.label :title, 'Titulo de la clase' %>
-      <%= form.text_field :title, required: true, maxlength: 60 %>
+      <%= form.text_field :title, required: true, maxlength: 60, minlength: 10 %>
     </div>
     <div class="fields">
       <%= form.label :description, 'Descripción' %>
-      <%= form.text_area :description, required: true, maxlength: 170 %>
+      <%= form.text_area :description, required: true, maxlength: 170, minlength: 15 %>
     </div>
   </div>
   <div class="media-content">
@@ -58,15 +58,26 @@
 <% end %>
 <script>
   function displayPicture(event) {
-    const input = event.target
-    if (input.files && input.files[0]) {
-      const reader = new FileReader()
+  const input = event.target;
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    const reader = new FileReader();
 
-      reader.onload = function (e) {
-        document.getElementById('cover').setAttribute('src', e.target.result)
+    reader.onload = function (e) {
+      if (isImage(file)) {
+        document.getElementById('cover').setAttribute('src', e.target.result);
+      } else {
+        input.value = ''; // Restablecer el valor del input
+        document.getElementById('cover').setAttribute('src', '');
+        alert('El archivo seleccionado no es una imagen válida.');
       }
+    };
 
-      reader.readAsDataURL(input.files[0])
-    }
+    reader.readAsDataURL(file);
+  }
+  }
+
+  function isImage(file) {
+  return file.type.startsWith('image/');
   }
 </script>

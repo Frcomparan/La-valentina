@@ -19,3 +19,9 @@ es:
             current_password:
               invalid: 'La contraseña ingresada es invalida'
               blank: 'Debes ingresar tu contraseña para confirmar tus cambios'
+        course:
+          attributes:
+            name:
+              blank: 'No puede ingresar un nombre en blanco'
+            description:
+              blank: 'No puede ingresar una descripción en blanco'
