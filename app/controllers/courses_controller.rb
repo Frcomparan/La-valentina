@@ -25,7 +25,11 @@ class CoursesController < ApplicationController
   end
 
   def my_courses
-    @courses = current_user.bought_courses
+    @courses = if !params[:search].nil?
+      current_user.bought_courses.search(params[:search])
+    else
+      current_user.bought_courses
+    end
   end
 
   # GET /courses/1 or /courses/1.json

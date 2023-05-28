@@ -20,7 +20,7 @@
     </div>
     <div class="fields">
       <%= form.label :price, 'Precio' %>
-      <%= form.number_field :price, required: true, min:11, max:10000 %>
+      <%= form.number_field :price, required: true, min:11, max:10000, step: 0.001 %>
     </div>
   </div>
   <div class="media-content">

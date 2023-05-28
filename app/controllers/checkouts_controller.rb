@@ -56,7 +56,11 @@ class CheckoutsController < ApplicationController
     course = Course.find_by(name: @line_items.data[0].description)
     cart_item.cart = @cart
     cart_item.course = course
-
+    @current_cart.cart_items.each do |item|
+      if item.course_id == course.id
+        item.destroy
+      end
+    end
     cart_item.save
   end
 end
